@@ -1,0 +1,67 @@
+body {
+    background-image: url("/images/backgroundfrontpage.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.nav-link {
+    color: black;
+    font-family:Verdana;
+}
+.nav > li > a:hover {
+    color: darkseagreen;
+}
+.navbar .container-fluid {
+    justify-content: end;
+}
+.navbar-brand {
+    margin-left: 20px;
+    font-family: "Roboto Light";
+    font-weight: bold;
+    font-size: 30px;
+}
+#brandlogo {
+    width: 50px;
+    height: 40px;
+    margin-right: 10px;
+}
+#tagline {
+    color: #d4edda;
+    font-size: 55px;
+    font-family: Verdana;
+}
+#landingcontent {
+    margin-top: 160px;
+}
+
+#landingcontent-smalldescription {
+    color: #d4edda;
+    font-family: Verdana;
+}
+.row .col-lg {
+    justify-content: center;
+    align-items: center;
+}
+#buttonlogin {
+    width: 80px;
+    height: 40px;
+}
+#buttonlogin:hover {
+    background-color: whitesmoke;
+    color: darkseagreen;
+    border-color: darkseagreen;
+}
+
+@media screen and (max-width: 320px){
+    .navbar {
+        justify-content: center;
+        align-items: center;
+    }
+    #LoginSignup {
+        justify-content: center;
+        align-items: center;
+    }
+    .nav-item {
+        width: 100%;
+        text-align: center;
+    }
+}
