@@ -7,17 +7,22 @@ body {
     color: black;
     font-family:Verdana;
 }
-.nav > li > a:hover {
+.nav-item {
+    margin-left: 10px;
+}
+#navlist > li > a:hover {
     color: darkseagreen;
 }
-.navbar .container-fluid {
+#LoginSignupContainer{
     justify-content: end;
+    margin-bottom: -15px;
 }
 .navbar-brand {
     margin-left: 20px;
     font-family: "Roboto Light";
     font-weight: bold;
-    font-size: 30px;
+    font-size: 26px;
+    margin-bottom: 0px;
 }
 #brandlogo {
     width: 50px;
@@ -25,21 +30,31 @@ body {
     margin-right: 10px;
 }
 #tagline {
-    color: #d4edda;
+    color: white;
     font-size: 55px;
     font-family: Verdana;
+    margin-top: 70px;
+}
+#signupshoppr {
+    color: white;
+    font-size: 55px;
+    font-family: Verdana;
+    margin-top: 140px;
 }
 #landingcontent {
-    margin-top: 160px;
+    margin-top: 110px;
 }
-
+#navlist {
+    list-style-type: none;
+    align-items: center;
+}
 #landingcontent-smalldescription {
-    color: #d4edda;
+    color: white;
     font-family: Verdana;
 }
-.row .col-lg {
-    justify-content: center;
-    align-items: center;
+#signup-smalldescription {
+    color: white;
+    font-family: Verdana;
 }
 #buttonlogin {
     width: 80px;
@@ -50,18 +65,105 @@ body {
     color: darkseagreen;
     border-color: darkseagreen;
 }
+#formbuttonregister:hover {
+    background-color: whitesmoke;
+    color: darkseagreen;
+    border-color: darkseagreen;
+}
+#signupform {
+    background-color: whitesmoke;
+    border-radius: 10px;
+    padding: 20px;
+}
 
+#loginform {
+    background-color: whitesmoke;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    width: 450px;
+    margin-top: 80px;
+}
+#linklogin {
+    text-decoration: none;
+}
+#nameError {
+    display: none;
+    font-size: 12px;
+    justify-content: start;
+    margin-top: -1px;
+}
+#passwordError {
+    display: none;
+    font-size: 12px;
+    justify-content: start;
+    margin-top: -13px;
+    margin-bottom: 5px;
+}
+#pass8Char {
+    font-size: 12px;
+    justify-content: start;
+    margin-bottom: 4px;
+    color: #d9534f;
+    visibility: hidden;
+}
+#passSpecialChar {
+    font-size: 12px;
+    justify-content: start;
+    margin-bottom: 4px;
+    color: #d9534f;
+    visibility: hidden;
+}
+#passNumber {
+    font-size: 12px;
+    justify-content: start;
+    margin-bottom: 4px;
+    color: #d9534f;
+    visibility: hidden;
+}
+
+#checkcircle {
+    margin-right: 5px;
+}
 @media screen and (max-width: 320px){
-    .navbar {
-        justify-content: center;
-        align-items: center;
-    }
-    #LoginSignup {
-        justify-content: center;
-        align-items: center;
+    #linksignup {
+        font-size: 12px;
     }
     .nav-item {
         width: 100%;
+        text-align: end;
+    }
+    .navbar-brand {
+        width: 50px;
+        height: 30px;
+        font-size: 21px;
+        margin-left: 5px;
+    }
+    #signupform {
+        margin-top: 0px;
+    }
+    #signupshoppr {
+        font-size: 28px;
+        margin-top: -5px;
         text-align: center;
+    }
+    #signup-smalldescription {
+        text-align: center;
+    }
+    #buttonlogin {
+        width: 55px;
+        height: 30px;
+        font-size: 12px;
+        text-align: center;
+    }
+    #LoginSignupContainer {
+        margin-top: -25px;
+        margin-right: 10px;
+    }
+    #tagline {
+        font-size: 35px;
+    }
+    #landingcontent-smalldescription {
+        font-size: 13px;
     }
 }
