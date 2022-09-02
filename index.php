@@ -21,7 +21,7 @@
                 <a class="nav-link" href="signup.php" id="linksignup">Sign Up</a>
             </li>
             <li class="nav-item">
-                <button class="btn btn-outline-success" id="buttonlogin"><a href="index.php" class="text-success" id="linklogin">Login</a></button>
+                <a href="index.php" class="text-success" id="linklogin"><button class="btn btn-outline-success" id="buttonlogin">Login</button></a>
             </li>
 
         </ul>
@@ -36,11 +36,11 @@
                 <form id="loginform">
                     <h5 style="font-family: Verdana; text-align: center">Login</h5>
                     <div class="form-group">
-                        <input type="email" class="form-control" id="Email" placeholder="Email">
+                        <input type="email" class="form-control" id="Email" placeholder="Email" required>
                         <!---<small class="form-text text-muted">We'll never share your email with anyone else.</small>-->
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" id="Password1" placeholder="Password">
+                        <input type="password" class="form-control" id="Password1" placeholder="Password" required>
                     </div>
                     <button type="submit" id="formbuttonregister" class="btn btn-outline-success">Login</button>
                 </form>

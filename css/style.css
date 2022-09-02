@@ -86,12 +86,13 @@ body {
 }
 #linklogin {
     text-decoration: none;
+    display: block;
 }
 #nameError {
     display: none;
     font-size: 12px;
     justify-content: start;
-    margin-top: -1px;
+    margin-top: 0px;
 }
 #passwordError {
     display: none;
@@ -105,27 +106,28 @@ body {
     justify-content: start;
     margin-bottom: 4px;
     color: #d9534f;
-    visibility: hidden;
+    display: none;
 }
 #passSpecialChar {
     font-size: 12px;
     justify-content: start;
     margin-bottom: 4px;
     color: #d9534f;
-    visibility: hidden;
+    display: none;
 }
 #passNumber {
     font-size: 12px;
     justify-content: start;
     margin-bottom: 4px;
     color: #d9534f;
-    visibility: hidden;
+    display: none;
 }
 
 #checkcircle {
     margin-right: 5px;
 }
 @media screen and (max-width: 320px){
+
     #linksignup {
         font-size: 12px;
     }
@@ -165,5 +167,16 @@ body {
     }
     #landingcontent-smalldescription {
         font-size: 13px;
+    }
+    #TermsConditionsLabel {
+        font-size: 12px;
+    }
+    #loginform {
+        background-color: whitesmoke;
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+        width: auto;
+        margin-top: 10px;
     }
 }

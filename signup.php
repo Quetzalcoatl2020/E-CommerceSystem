@@ -22,7 +22,7 @@
                     <a class="nav-link" href="signup.php" id="linksignup">Sign Up</a>
                 </li>
                 <li class="nav-item">
-                    <button class="btn btn-outline-success" id="buttonlogin"><a href="index.php" class="text-success" id="linklogin">Login</a></button>
+                    <a href="index.php" class="text-success" id="linklogin"><button class="btn btn-outline-success" id="buttonlogin">Login</button></a>
                 </li>
 
             </ul>
@@ -38,32 +38,32 @@
                     <h5 style="font-family: Verdana; text-align: center">Account Registration</h5>
                     <div class="form-row">
                         <div class="col">
-                            <input type="text" class="form-control" id="FirstName" placeholder="First Name" onkeyup="firstnamevalidate();">
+                            <input type="text" class="form-control" id="FirstName" placeholder="First Name" onfocus="showNameFormat()" onkeyup="firstnamevalidate();" required>
                             </div>
                         <div class="col">
-                            <input type="text" class="form-control" id="LastName" placeholder="Last Name" onkeyup="lastnamevalidate();">
+                            <input type="text" class="form-control" id="LastName" placeholder="Last Name" onfocus="showNameFormat()" onkeyup="lastnamevalidate();" required>
                         </div>
                     </div>
                     <!--small text input indicator below name textbox-->
                     <small class="form-text text-danger justify-content-start" id="nameError">First and last name must be at least 2 characters and contain letters only.</small>
 
-                    <div class="form-group" style="margin-top: 20px">
-                        <input type="email" class="form-control" id="Email" placeholder="Email">
+                    <div class="form-group" style="margin-top: 15px">
+                        <input type="email" class="form-control" id="Email" placeholder="Email" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="Address" placeholder="Complete Address">
+                        <input type="text" class="form-control" id="Address" placeholder="Complete Address" required>
                     </div>
-                    <div class="form-group">
-                        <input type="password" class="form-control" id="Password1" placeholder="Password" onkeyup="passwordformat()" onfocus="showpassformat()">
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <input type="password" class="form-control" id="Password1" placeholder="Password" onkeyup="passwordformat()" onfocus="showpassformat()" onfocusout="hidepassformat()" required>
                     </div>
                     <div class="form-row" style="margin-top: -15px; margin-bottom: 7px">
-                        <div class="col">
+                        <div class="col-sm-4">
                             <small class="form-text justify-content-start" id="pass8Char"><i class="bi bi-check-circle" id="checkcircle"></i>at least 8 characters</small>
                         </div>
-                        <div class="col">
+                        <div class="col-sm-4">
                             <small class="form-text justify-content-start" id="passNumber"><i class="bi bi-check-circle" id="checkcircle"></i>contains number</small>
                             </div>
-                        <div class="col">
+                        <div class="col-sm-4">
                             <small class="form-text justify-content-start" id="passSpecialChar"><i class="bi bi-check-circle" id="checkcircle"></i>contains special character</small>
                         </div>
                     </div>
@@ -75,7 +75,7 @@
                     <div class="form-group d-flex justify-content-center">
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" id="TermsConditionsCheck">
-                            <label class="form-check-label" for="TermsConditionsCheck">
+                            <label class="form-check-label" for="TermsConditionsCheck" id="TermsConditionsLabel">
                                 I agree to the terms and conditions of Shoppr
                             </label>
                         </div>

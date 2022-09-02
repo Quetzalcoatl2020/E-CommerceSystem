@@ -1,3 +1,9 @@
+//when the cursor was focused on either first or last name fields (sign up)
+function showNameFormat() {
+    document.getElementById("nameError").style.display='block';
+}
+
+
 //validation of first name format on key up (sign up)
 function firstnamevalidate(){
     var regexname=/^([a-zA-Z ]{2,20})$/;
@@ -27,10 +33,14 @@ function lastnamevalidate(){
 }
 
 function showpassformat() {
-    document.getElementById("pass8Char").style.visibility = 'visible';
-    document.getElementById("passSpecialChar").style.visibility = 'visible';
-    document.getElementById("passNumber").style.visibility = 'visible';
-    ;
+    document.getElementById("pass8Char").style.display='block';
+    document.getElementById("passSpecialChar").style.display='block';
+    document.getElementById("passNumber").style.display='block';
+}
+function hidepassformat() {
+    document.getElementById("pass8Char").style.display='none';
+    document.getElementById("passSpecialChar").style.display='none';
+    document.getElementById("passNumber").style.display='none';
 }
 
 //validation of password format (sign up)
