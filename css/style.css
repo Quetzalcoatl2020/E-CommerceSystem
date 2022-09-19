@@ -1,4 +1,4 @@
-body {
+#frontpages-background {
     background-image: url("/images/backgroundfrontpage.png");
     background-size: cover;
     background-repeat: no-repeat;
@@ -11,7 +11,7 @@ body {
     margin-left: 10px;
 }
 #navlist > li > a:hover {
-    color: darkseagreen;
+    color: gray;
 }
 #LoginSignupContainer{
     justify-content: end;
@@ -61,14 +61,19 @@ body {
     height: 40px;
 }
 #buttonlogin:hover {
-    background-color: whitesmoke;
-    color: darkseagreen;
-    border-color: darkseagreen;
+    background-color: white;
+    color: black;
+    border-color: white;
 }
 #formbuttonregister:hover {
-    background-color: whitesmoke;
-    color: darkseagreen;
-    border-color: darkseagreen;
+    background-color: black;
+    color: white;
+    border-color: black;
+}
+#formbuttonlogin:hover {
+    background-color: black;
+    color: white;
+    border-color: black;
 }
 #signupform {
     background-color: whitesmoke;
@@ -123,17 +128,77 @@ body {
     display: none;
 }
 
-#checkcircle {
+#pass8char_checkcircle {
+    display: inline-block;
     margin-right: 5px;
 }
-@media screen and (max-width: 320px){
+#passNumber_checkcircle {
+    display: inline-block;
+    margin-right: 5px;
+}
+#passSpecialChar_checkcircle {
+    display: inline-block;
+    margin-right: 5px;
+}
+#pass8char_circlefill {
+    display: none;
+    margin-right: 5px;
+}
+#passNumber_circlefill {
+    display: none;
+    margin-right: 5px;
+}
+#passSpecialChar_circlefill {
+    display: none;
+    margin-right: 5px;
+}
+.form-control {
+    border-color: dimgray;
+    border-width: 2px;
+}
+#navdropdown {
+    margin-left: -90px;
+}
+#shoppingcart {
+    font-size: 22px;
+    margin-right: 10px;
+}
+#menuicon {
+    font-size: 20px;
+    margin-right: 10px;
+}
+#profile-maincontainer {
+    padding-top: 100px;
+    background-color: white;
+}
+#profile-secondarycontainer {
+    padding-top: 20px;
+    background-color: white;
+    -webkit-box-shadow: 0px 2px 2px 0px #969696;
+    padding-bottom: 0px;
+}
+#profile-navigationbar {
+    background-color: white;
+}
+#profilepic {
+    width: 140px;
+    height: 120px;
+    margin-right: 30px;
+}
+#tab-active {
+    border-bottom: 3px solid black;
+    width: 170px;
+}
+#tab-inactive {
+    width: 170px;
+}
+#profile-ordernav {
+    margin-bottom: -9px;
+}
+@media screen and (max-width: 480px){
 
     #linksignup {
         font-size: 12px;
-    }
-    .nav-item {
-        width: 100%;
-        text-align: end;
     }
     .navbar-brand {
         width: 50px;
@@ -178,5 +243,11 @@ body {
         text-align: center;
         width: auto;
         margin-top: 10px;
+    }
+    #yourcart_text {
+        display: block;
+    }
+    #navdropdown {
+        margin-left: 20px;
     }
 }

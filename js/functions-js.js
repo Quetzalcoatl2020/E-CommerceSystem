@@ -1,8 +1,22 @@
-//when the cursor was focused on either first or last name fields (sign up)
-function showNameFormat() {
-    document.getElementById("nameError").style.display='block';
-}
+//checking the format of both first and last name when the cursor focused-out the name fields (sign up)
+function checknameformat() {
+    var regexname=/^([a-zA-Z ]{2,20})$/;
+    var fname = document.getElementById("FirstName").value;
+    var lname = document.getElementById("LastName").value;
 
+    if (fname != null) {
+        if (!fname.match(regexname)){
+            // there is a mismatch, hence show the error message
+            document.getElementById("nameError").style.display='block';
+        }
+    }
+    else if (lname != null) {
+        if (!lname.match(regexname)){
+            // there is a mismatch, hence show the error message
+            document.getElementById("nameError").style.display='block';
+        }
+    }
+}
 
 //validation of first name format on key up (sign up)
 function firstnamevalidate(){
@@ -53,25 +67,37 @@ function passwordformat() {
     //checking if the password is at least 8 characters long
     if (password.match(pass8char)){
         document.getElementById("pass8Char").style.color='#5cb85c';
+        document.getElementById("pass8char_checkcircle").style.display = 'none';
+        document.getElementById("pass8char_circlefill").style.display = 'inline-block';
     }
     else {
         document.getElementById("pass8Char").style.color='#d9534f';
+        document.getElementById("pass8char_checkcircle").style.display = 'inline-block';
+        document.getElementById("pass8char_circlefill").style.display = 'none';
     }
 
     //checking if the password has at least 1 number
     if (password.match(passnumber)){
         document.getElementById("passNumber").style.color='#5cb85c';
+        document.getElementById("passNumber_checkcircle").style.display = 'none';
+        document.getElementById("passNumber_circlefill").style.display = 'inline-block';
     }
     else {
         document.getElementById("passNumber").style.color='#d9534f';
+        document.getElementById("passNumber_checkcircle").style.display = 'inline-block';
+        document.getElementById("passNumber_circlefill").style.display = 'none';
     }
 
-    //checking if the password has at least 1 speciall character
+    //checking if the password has at least 1 special character
     if (password.match(passspecial)){
         document.getElementById("passSpecialChar").style.color='#5cb85c';
+        document.getElementById("passSpecialChar_checkcircle").style.display = 'none';
+        document.getElementById("passSpecialChar_circlefill").style.display = 'inline-block';
     }
     else {
         document.getElementById("passSpecialChar").style.color='#d9534f';
+        document.getElementById("passSpecialChar_checkcircle").style.display = 'inline-block';
+        document.getElementById("passSpecialChar_circlefill").style.display = 'none';
     }
 }
 
@@ -87,3 +113,4 @@ function passwordchecking() {
         document.getElementById("passwordError").style.display = 'none';
     }
 }
+
