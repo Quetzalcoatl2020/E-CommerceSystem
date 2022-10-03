@@ -13,7 +13,7 @@
 </head>
 <body class="bg-light">
 <!-- Navigation bar at the top page -->
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark">
         <span class="navbar-brand h1">Shoppr</span>
 
         <!--Button that toggles the navbar contents to be visible when the screen is resized to a certain width-->
@@ -31,12 +31,12 @@
             </form>
 
             <!--navbar links-->
-            <ul class="navbar-nav mr-5">
+            <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link text-light" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light" href="#" id="shoppingcartlink"><i class="bi bi-cart4" id="shoppingcart"></i></a>
+                    <a class="nav-link text-light" href="user-profile-cart.php" id="shoppingcartlink"><i class="bi bi-cart4" id="shoppingcart"></i></a>
                 </li>
 
                 <!--Dropdown-->
@@ -56,34 +56,36 @@
 
     <!--Main content-->
         <div class="container-fluid d-flex justify-content-center align-items-center mb-0 pb-0" id="profile-maincontainer">
+            <!-- USER PROFILE code block-->
             <div class="row d-flex align-items-center">
-                <div class="col-sm-4">
+                <div class="col-sm-4 d-flex justify-content-center">
                     <img src="images/profile-pic.png" class="rounded-circle" id="profilepic">
                 </div>
-                <div class="col-sm-8 align-items-center" id="profile-userinfoheader">
-                    <div class="row no-gutters" style="margin-bottom: -5px;">
-                        <p class="h4">Jemrel Ricky Mangaliman</p>
+                <div class="col-sm-8" id="profile-userinfoheader">
+                    <div class="row" style="margin-bottom: -5px;">
+                        <p class="h4" id="user-name">Jemrel Ricky Mangaliman</p>
                     </div>
-                    <div class="row no-gutters" style="margin-bottom: -15px;">
-                        <p>mangalimanjemrel@gmail.com</p>
+                    <div class="row" style="margin-bottom: -15px;">
+                        <p id="user-email">mangalimanjemrel@gmail.com</p>
                     </div>
-                    <div class="row no-gutters">
-                        <small>1060 San Pablo St. Brgy. Cabilang Baybay, Carmona, Cavite</small>
+                    <div class="row">
+                        <small id="user-address">Cavite, Region 4-A, Luzon, Philippines, Earth, Milky Way Galaxy</small>
                     </div>
                 </div>
             </div>
         </div>
+        <!-- Code for tabs (Cart, Pending, Completed)-->
         <div class="container-fluid d-flex justify-content-center" id="profile-secondarycontainer">
-            <nav class="navbar navbar-expand-sm" id="profile-ordernav">
-                <ul class="navbar-nav">
+            <nav class="navbar navbar-expand-lg" id="profile-ordernav">
+                <ul class="d-flex" id="profile-navlist">
                     <li class="nav-item">
-                        <a class="nav-link text-dark text-center" id="tab-inactive" href="user-profile-cart.php">Your Cart</a>
+                        <a class="nav-link text-dark text-center" id="tab-inactive" href="user-profile-cart.php"><i class="bi bi-cart4" id="profile-shoppingcart"></i><p id="profile-tabtext">Your Cart</p></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark text-center" id="tab-inactive" href="user-profile-pending.php">Pending Orders</a>
+                        <a class="nav-link text-dark text-center" id="tab-inactive" href="user-profile-pending.php"><i class="bi bi-card-list" id="profile-cardlistpending"></i><p id="profile-tabtext">Pending Orders</p></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark text-center" id="tab-active" href="user-profile-completed.php">Completed Orders</a>
+                        <a class="nav-link text-dark text-center" id="tab-active" href="user-profile-completed.php"><i class="bi bi-clipboard-check" id="profile-clipboardcomplete"></i><p id="profile-tabtext">Completed Orders</p></a>
                     </li>
                 </ul>
             </nav>

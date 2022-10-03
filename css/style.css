@@ -188,14 +188,75 @@
 #tab-active {
     border-bottom: 3px solid black;
     width: 170px;
+    padding-bottom: 10px;
 }
 #tab-inactive {
     width: 170px;
 }
 #profile-ordernav {
-    margin-bottom: -9px;
+    margin-bottom: -25px;
+    margin-left: -50px;
 }
-@media screen and (max-width: 480px){
+#profile-shoppingcart {
+    font-size: 22px;
+    margin-right: 10px;
+    display: none;
+}
+#profile-clipboardcomplete {
+    font-size: 22px;
+    margin-right: 10px;
+    display: none;
+}
+#profile-cardlistpending {
+    font-size: 22px;
+    margin-right: 10px;
+    display: none;
+}
+#profile-tabtext {
+    margin: 0px;
+    text-align: center;
+}
+#profile-navlist {
+    list-style-type: none;
+    align-items: center;
+}
+#cart-product-card {
+    width: 900px;
+    height: auto;
+    border-radius: 1px;
+}
+#product-label-bar {
+    width: 900px;
+    height: auto;
+    border-radius: 1px;
+}
+#product-img {
+    width: 80px;
+    height: 80px;
+}
+#product-name {
+    font-size: 14px;
+}
+#product-price {
+    font-size: 14px;
+}
+.navbar-nav {
+    margin-right: 50px;
+}
+.card-body {
+    padding-left: 2px;
+    padding-right: 2px;
+}
+#cart-quantity-input {
+    width: 70px;
+}
+#cart-quantity-input::-webkit-outer-spin-button,
+#cart-quantity-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+@media screen and (max-width: 575px){
 
     #linksignup {
         font-size: 12px;
@@ -248,6 +309,76 @@
         display: block;
     }
     #navdropdown {
-        margin-left: 20px;
+        border-radius: 0px;
+        width: auto;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .navbar-nav {
+        margin-right: 0px;
+    }
+    .nav-item {
+        margin-left: 0px;
+    }
+    .nav-link.text-light {
+        font-size: 16px;
+        text-align: center;
+    }
+    #profilepic {
+        width: 100px;
+        height: 80px;
+        margin-right: -10px;
+    }
+    #profile-tabtext {
+        display: none;
+    }
+    #profile-shoppingcart {
+        display: block;
+        margin-left: 11px;
+    }
+    #profile-clipboardcomplete {
+        display: block;
+        margin-left: 11px;
+    }
+    #profile-cardlistpending {
+        display: block;
+        margin-left: 11px;
+    }
+    #tab-active, #tab-inactive {
+        width: 80px;
+    }
+    #user-name {
+        text-align: center;
+        font-size: 18px;
+    }
+    #user-email {
+        text-align: center;
+        font-size: 12px;
+    }
+    #user-address {
+        text-align: center;
+        font-size: 12px;
+    }
+    #product-img {
+        width: 50px;
+        height: 50px;
+    }
+    #cart-product-card {
+        width: 400px;
+        height: auto;
+    }
+    #product-name {
+        font-size: 11px;
+    }
+    #product-price {
+        font-size: 11px;
+    }
+    #product-label-bar {
+        display: none;
+    }
+    #cart-quantity-input {
+        width: 35px;
+        height: 35px;
+        font-size: 12px;
     }
 }
