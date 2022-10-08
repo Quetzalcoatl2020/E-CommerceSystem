@@ -4,17 +4,32 @@ function checknameformat() {
     var fname = document.getElementById("FirstName").value;
     var lname = document.getElementById("LastName").value;
 
-    if (fname != null) {
+    if (fname != "") {
         if (!fname.match(regexname)){
             // there is a mismatch, hence show the error message
             document.getElementById("nameError").style.display='block';
+            document.getElementById("FirstName").style.borderColor='#d9534f';
+        }
+        else {
+            document.getElementById("FirstName").style.borderColor='dimgray';
         }
     }
-    else if (lname != null) {
+    else {
+        document.getElementById("FirstName").style.borderColor='dimgray';
+    }
+
+    if (lname != "") {
         if (!lname.match(regexname)){
             // there is a mismatch, hence show the error message
             document.getElementById("nameError").style.display='block';
+            document.getElementById("LastName").style.borderColor='#d9534f';
         }
+        else {
+            document.getElementById("LastName").style.borderColor='dimgray';
+        }
+    }
+    else {
+        document.getElementById("LastName").style.borderColor='dimgray';
     }
 }
 

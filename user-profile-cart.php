@@ -63,7 +63,15 @@
                 </div>
                 <div class="col-sm-8" id="profile-userinfoheader">
                     <div class="row" style="margin-bottom: -5px;">
-                        <p class="h4" id="user-name">Jemrel Ricky Mangaliman</p>
+                        <div class="col-11">
+                            <p class="h4" id="user-name">Jemrel Ricky Mangaliman</p>
+                        </div>
+                        <div class="col-1" style="margin-left: -35px;">
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-outline-dark bg-transparent border-0 shadow-none" id="edit-profile-button" data-toggle="modal" data-target="#UserInformationModal">
+                                <i class="bi bi-pencil-square"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="row" style="margin-bottom: -15px;">
                         <p id="user-email">mangalimanjemrel@gmail.com</p>
@@ -82,10 +90,10 @@
                             <a class="nav-link text-dark text-center" id="tab-active" href="user-profile-cart.php"><i class="bi bi-cart4" id="profile-shoppingcart"></i><p id="profile-tabtext">Your Cart</p></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark text-center" id="tab-inactive" href="user-profile-pending.php"><i class="bi bi-card-list" id="profile-cardlistpending"></i><p id="profile-tabtext">Pending Orders</p></a>
+                            <a class="nav-link text-secondary text-center" id="tab-inactive" href="user-profile-pending.php"><i class="bi bi-card-list" id="profile-cardlistpending"></i><p id="profile-tabtext">Pending Orders</p></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark text-center" id="tab-inactive" href="user-profile-completed.php"><i class="bi bi-clipboard-check" id="profile-clipboardcomplete"></i><p id="profile-tabtext">Completed Orders</p></a>
+                            <a class="nav-link text-secondary text-center" id="tab-inactive" href="user-profile-completed.php"><i class="bi bi-clipboard-check" id="profile-clipboardcomplete"></i><p id="profile-tabtext">Completed Orders</p></a>
                         </li>
                     </ul>
                 </nav>
@@ -98,47 +106,81 @@
                     </div>
                     <div class="col-6">
                         <div class="card-body">
-                            <small class="card-text" id="cart-labels">Product</small>
+                            <small class="card-text">Product</small>
                         </div>
                     </div>
                     <div class="col-3">
                         <div class="card-body">
-                            <small class="card-text" id="cart-labels">Quantity</small>
+                            <small class="card-text">Total Amount</small>
                         </div>
                     </div>
                     <div class="col-2">
                         <div class="card-body">
-                            <small class="card-text" id="cart-labels">Total Price</small>
+                            <small class="card-text">Options</small>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--Code for user cart contents-->
-        <div class="container d-flex justify-content-center mt-1">
-            <div class="card mt-2 p-1" id="cart-product-card">
-                <div class="row pb-2 pt-2">
-                    <div class="col-1 pl-4 d-flex justify-content-center align-items-center">
-                        <input type="checkbox">
-                    </div>
-                    <div class="col-2 d-flex align-items-center">
-                        <img class="card-img" id="product-img" src="images/electric-drill.jpg" alt="Card image cap">
-                    </div>
-                    <div class="col-4">
-                        <div class="card-body">
-                            <h6 class="card-title" id="product-name">All-Purpose Electric Drill</h6>
-                            <p class="card-text" id="product-price">₱2500.00</p>
-                        </div>
-                    </div>
-                    <div class="col-3 d-flex align-items-center">
-                        <input type="number" min="0" id="cart-quantity-input" inputmode="numeric">
-                    </div>
-                    <div class="col-2">
                     </div>
                 </div>
             </div>
         </div>
 
+        <!--Code for product list here (card)-->
+        <div class="container d-flex justify-content-center mt-1">
+            <div class="card mt-2 p-1" id="cart-product-card">
+                <div class="row pb-2 pt-2">
+                    <!--Checkbox here-->
+                    <div class="col-1 pl-4 d-flex justify-content-center align-items-center">
+                        <input type="checkbox">
+                    </div>
+                    <!--Product Image here-->
+                    <div class="col-2 d-flex align-items-center">
+                        <img class="card-img" id="product-img" src="images/electric-drill.jpg" alt="Card image cap">
+                    </div>
+
+                    <div class="col-4">
+                        <div class="card-body">
+                            <!--Product Name here-->
+                            <h6 class="card-title" id="product-name">All-Purpose Electric Drill</h6>
+                            <!--Product Price here-->
+                            <p class="card-text" id="product-price">₱2500.00</p>
+                        </div>
+                    </div>
+
+                    <!--Total Price here-->
+                    <div class="col-3 d-flex align-items-center">
+                        <p class="card-text text-success font-weight-bold" id="product-total-price">₱2500.00</p>
+                    </div>
+
+                    <!--Options here-->
+                    <div class="col-1 d-flex align-items-center justify-content-center">
+                        <a href="#" style=""><i class="bi bi-x-lg text-danger"></i></a>
+                    </div>
+                </div>
+                <div class="card-footer bg-transparent border-secondary d-flex" style="padding-bottom: 0px; height: 42px;">
+                    <p class="card-text" style="font-size: 13px; margin-top: 5px;">Quantity:</p><input class="ml-2" type="number" min="0" id="cart-quantity-input" inputmode="numeric">
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="UserInformationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 </body>
 </html>
 

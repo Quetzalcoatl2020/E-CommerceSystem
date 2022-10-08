@@ -96,7 +96,7 @@
             <!--Tagline Text Area-->
             <div class="col-lg" id="landingcontent-secondcolumn">
                 <h1 id="signupshoppr">Sign up to Shoppr</h1>
-                <p id="signup-smalldescription">The leading online shopping platform.</p>
+                <p id="signup-smalldescription">One of the leading online shopping platform.</p>
             </div>
     </div>
     </div>
