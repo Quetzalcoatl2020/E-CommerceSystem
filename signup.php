@@ -36,8 +36,11 @@
         <div class="row" id="landingcontent">
             <!--Form Area-->
             <div class="col-lg" id="landingcontent-firstcolumn">
-                <form id="signupform">
+                <form id="signupform" onsubmit="event.preventDefault(); onSubmitFormInputValidation()" action="POST">
                     <h5 style="font-family: Verdana; text-align: center">Account Registration</h5>
+                    <div class="form-group rounded" id="FormInput-ErrorContainer">
+                        <p class="text-center" id="FormInput-ErrorText">Please follow correct input formats.</p>
+                    </div>
                     <!-- first and last name text boxes-->
                     <div class="form-row">
                         <div class="col">
@@ -59,7 +62,7 @@
                     </div>
                     <!-- password text box-->
                     <div class="form-group" style="margin-bottom: 20px;">
-                        <input type="password" class="form-control" id="Password1" placeholder="Password" onkeyup="passwordformat()" onfocus="showpassformat()" onfocusout="hidepassformat()" required>
+                        <input type="password" class="form-control" id="Password1" placeholder="Password" onkeyup="passwordformat()" onfocus="showpassformat()" onfocusout="otherpassformatmechanics()" required>
                     </div>
                     <!--small text input indicators that shows guidelines in password format-->
                     <div class="form-row" style="margin-top: -20px; margin-bottom: 7px">
@@ -74,7 +77,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" id="Password2" placeholder="Confirm Password" onkeyup="passwordchecking()">
+                        <input type="password" class="form-control" id="Password2" placeholder="Confirm Password" onkeyup="passwordchecking()" onfocusout="otherpassformatmechanics()">
                     </div>
                     <small class="form-text text-danger justify-content-start" id="passwordError">Passwords does not match.</small>
 
@@ -88,7 +91,7 @@
                         </div>
                     </div>
                     <div class="form-group d-flex justify-content-center">
-                        <button type="submit" id="formbuttonregister" class="btn btn-dark">Register</button>
+                        <button type="submit" id="formbuttonregister" class="btn btn-outline-dark">Register</button>
                     </div>
                 </form>
             </div>

@@ -156,10 +156,24 @@
     border-color: dimgray;
     border-width: 2px;
 }
+#FormInput-ErrorContainer {
+    background-color: #ffcdd2;
+    border: 1px solid #d9534f;
+    height: auto;
+    display: none;
+}
+#FormInput-ErrorText {
+    color: #b21f2d;
+    margin-bottom: 2px;
+}
 #navdropdown {
     margin-left: -90px;
 }
 #shoppingcart {
+    font-size: 22px;
+    margin-right: 10px;
+}
+#homeicon {
     font-size: 22px;
     margin-right: 10px;
 }
@@ -185,14 +199,21 @@
     height: 120px;
     margin-right: 30px;
 }
-#tab-active {
+#cart-tab {
     border-bottom: 3px solid black;
     width: 170px;
     padding-bottom: 10px;
+    color: black;
 }
-#tab-inactive {
+#pendingorders-tab {
     width: 170px;
+    color: gray;
 }
+#completedorders-tab {
+    width: 170px;
+    color:gray;
+}
+
 #profile-ordernav {
     margin-bottom: -25px;
     margin-left: -50px;
@@ -272,11 +293,30 @@
 #edit-profile-button:hover {
     color: black;
 }
+#savebutton-EditProfile {
+    width: 80px;
+    height: 40px;
+}
+#savebutton-EditProfile:hover {
+    background-color: white;
+    color: black;
+    border-color: white;
+}
+#productcartcontainer {
+    display: block;
+}
+#pendingorderscontainer {
+    display: none;
+}
+#completedorderscontainer {
+    display: none;
+}
 
 @media screen and (max-width: 575px){
 
     #linksignup {
         font-size: 12px;
+        margin-right: 9px;
     }
     .navbar-brand {
         width: 50px;
@@ -322,6 +362,61 @@
         width: auto;
         margin-top: 10px;
     }
+    #FormInput-ErrorText {
+        font-size: 12px;
+    }
+    #FirstName  {
+        height: 30px;
+        font-size: 12px;
+    }
+    #LastName  {
+        height: 30px;
+        font-size: 12px;
+    }
+    #Email  {
+        height: 30px;
+        font-size: 12px;
+    }
+    #Address  {
+        height: 30px;
+        font-size: 12px;
+    }
+    #ZipCode  {
+        height: 30px;
+        font-size: 12px;
+    }
+    #ContactNumber  {
+        height: 30px;
+        font-size: 12px;
+    }
+    #Password1  {
+        height: 30px;
+        font-size: 12px;
+    }
+    #Password2  {
+        height: 30px;
+        font-size: 12px;
+    }
+    #CurrentPassword  {
+        height: 30px;
+        font-size: 12px;
+    }
+    #NewPassword  {
+        height: 30px;
+        font-size: 12px;
+    }
+    #nameError {
+        font-size: 10px;
+    }
+    #passNumber {
+        font-size: 11px;
+    }
+    #pass8Char {
+        font-size: 11px;
+    }
+    #passSpecialChar {
+        font-size: 11px;
+    }
     #yourcart_text {
         display: block;
     }
@@ -340,6 +435,9 @@
     .nav-link.text-light {
         font-size: 16px;
         text-align: center;
+    }
+    #profile-maincontainer {
+        padding-top: 70px;
     }
     #profilepic {
         width: 100px;
@@ -361,7 +459,15 @@
         display: block;
         margin-left: 11px;
     }
-    #tab-active, #tab-inactive {
+    #cart-tab {
+        border-bottom: 3px solid black;
+        width: 80px;
+        padding-bottom: 10px;
+    }
+    #pendingorders-tab {
+        width: 80px;
+    }
+    #completedorders-tab {
         width: 80px;
     }
     #user-name {
@@ -382,7 +488,6 @@
         height: 50px;
     }
     #cart-product-card {
-        width: 400px;
         height: auto;
     }
     #product-name {
@@ -390,6 +495,10 @@
     }
     #product-price {
         font-size: 11px;
+    }
+    #product-quantity {
+        font-size: 11px;
+        margin-bottom: -2px;
     }
     #product-total-price {
         font-size: 12px;
@@ -401,5 +510,8 @@
         width: 45px;
         height: 30px;
         font-size: 11px;
+    }
+    #orderstatus-indicator {
+        font-size: 10px;
     }
 }

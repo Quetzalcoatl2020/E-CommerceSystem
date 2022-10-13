@@ -33,7 +33,7 @@
             <!--navbar links-->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link text-light" href="#">Home</a>
+                    <a class="nav-link text-light" href="#"><i class="bi bi-house-door-fill" id="homeicon"></i></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-light" href="user-profile-cart.php" id="shoppingcartlink"><i class="bi bi-cart4" id="shoppingcart"></i></a>
@@ -153,22 +153,68 @@
             </div>
         </div>
 
-        <!-- Modal -->
+        <!-- Modal for user information viewing and editing -->
         <div class="modal fade" id="UserInformationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                    <div class="modal-header pt-2 pb-2">
+                        <h5 class="modal-title" id="EditProfile-ModalTitle">Edit Profile</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        ...
+                        <form id="edit-profile-form">
+                            <div class="form-row">
+                                <div class="col">
+                                    <input type="text" class="form-control" id="FirstName" placeholder="First Name" onfocusout="checknameformat();" onkeyup="firstnamevalidate();" required>
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control" id="LastName" placeholder="Last Name" onfocusout="checknameformat();" onkeyup="lastnamevalidate();" required>
+                                </div>
+                            </div>
+                            <!--small text input indicator below name textbox-->
+                            <small class="form-text text-danger justify-content-start" id="nameError">First and last name must be at least 2 characters and contain letters only.</small>
+                            <!-- email text box-->
+                            <div class="form-group" style="margin-top: 15px">
+                                <input type="email" class="form-control" id="Email" placeholder="Email" required>
+                            </div>
+                            <!-- address text box-->
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="Address" placeholder="Complete Address" required>
+                            </div>
+                            <!-- Zip Code text box-->
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="ZipCode" placeholder="Zip Code" required>
+                            </div>
+                            <!-- Contact Number text box-->
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="ContactNumber" placeholder="Contact Number" required>
+                            </div>
+                            <!-- password text box-->
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <input type="password" class="form-control" id="CurrentPassword" placeholder="Current Password" onkeyup="passwordformat()" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" id="NewPassword" placeholder="New Password" onkeyup="newpasswordformat()" onfocus="showpassformat()" onfocusout="hidepassformat()">
+                            </div>
+                            <!--small text input indicators that shows guidelines in password format-->
+                            <div class="form-row" style="margin-top: -20px; margin-bottom: 7px">
+                                <div class="col-sm-4">
+                                    <small class="form-text justify-content-start" id="pass8Char"><i class="bi bi-check-circle" id="pass8char_checkcircle"></i><i class="bi bi-check-circle-fill" id="pass8char_circlefill"></i>at least 8 characters</small>
+                                </div>
+                                <div class="col-sm-4">
+                                    <small class="form-text justify-content-start" id="passNumber"><i class="bi bi-check-circle" id="passNumber_checkcircle"></i><i class="bi bi-check-circle-fill" id="passNumber_circlefill"></i>contains number</small>
+                                </div>
+                                <div class="col-sm-4">
+                                    <small class="form-text justify-content-start" id="passSpecialChar"><i class="bi bi-check-circle" id="passSpecialChar_checkcircle"></i><i class="bi bi-check-circle-fill" id="passSpecialChar_circlefill"></i>contains special character</small>
+                                </div>
+                            </div>
+
+                        </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-outline-dark">Save Changes</button>
                     </div>
                 </div>
             </div>

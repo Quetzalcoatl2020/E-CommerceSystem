@@ -44,7 +44,7 @@
                     <div class="form-group">
                         <input type="password" class="form-control" id="Password1" placeholder="Password" required>
                     </div>
-                    <button type="submit" id="formbuttonlogin" class="btn btn-dark">Login</button>
+                    <button type="submit" id="formbuttonlogin" class="btn btn-outline-dark">Login</button>
                 </form>
             </div>
             <!--Tagline Text Area-->
