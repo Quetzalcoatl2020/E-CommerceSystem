@@ -181,6 +181,10 @@
     font-size: 20px;
     margin-right: 10px;
 }
+#adminmenuicon {
+    font-size: 20px;
+    margin-right: 10px;
+}
 #profile-maincontainer {
     padding-top: 100px;
     background-color: white;
@@ -311,7 +315,25 @@
 #completedorderscontainer {
     display: none;
 }
-
+#hamburgericon {
+    color: white;
+    font-size: 25px;
+}
+#adminlogoutcontainer {
+    margin-bottom: -15px;
+}
+#adminnavdropdown {
+    margin-left: -90px;
+}
+#sidebarcontent {
+    width: 300px;
+}
+#adminSidebar-tabActive {
+    background-color: lightgray;
+}
+#admin-maincontainer {
+    margin-top: 120px;
+}
 @media screen and (max-width: 575px){
 
     #linksignup {
@@ -321,7 +343,7 @@
     .navbar-brand {
         width: 50px;
         height: 30px;
-        font-size: 21px;
+        font-size: 19px;
         margin-left: 5px;
     }
     #signupform {
@@ -439,9 +461,13 @@
     #profile-maincontainer {
         padding-top: 70px;
     }
+    #profile-secondarycontainer {
+        padding-top: 5px;
+
+    }
     #profilepic {
-        width: 100px;
-        height: 80px;
+        width: 80px;
+        height: 60px;
         margin-right: -10px;
     }
     #profile-tabtext {
@@ -472,36 +498,36 @@
     }
     #user-name {
         text-align: center;
-        font-size: 18px;
+        font-size: 16px;
         margin-left: 36px;
     }
     #user-email {
         text-align: center;
-        font-size: 12px;
+        font-size: 11px;
     }
     #user-address {
         text-align: center;
-        font-size: 12px;
+        font-size: 11px;
     }
     #product-img {
-        width: 50px;
-        height: 50px;
+        width: 45px;
+        height: 45px;
     }
     #cart-product-card {
         height: auto;
     }
     #product-name {
-        font-size: 11px;
+        font-size: 10px;
     }
     #product-price {
         font-size: 11px;
     }
     #product-quantity {
-        font-size: 11px;
+        font-size: 10px;
         margin-bottom: -2px;
     }
     #product-total-price {
-        font-size: 12px;
+        font-size: 11px;
     }
     #product-label-bar {
         display: none;
@@ -513,5 +539,32 @@
     }
     #orderstatus-indicator {
         font-size: 10px;
+    }
+    #adminMenuDropdown {
+        font-size: 14px;
+    }
+    #adminMenuItem {
+        font-size: 14px;
+    }
+    #adminmenuicon {
+        font-size: 14px;
+    }
+    #hamburgericon {
+        font-size: 20px;
+    }
+    #adminnavdropdown {
+        margin-left: -90px;
+    }
+    #sidebarcontent {
+        width: 200px;
+    }
+    #sidebarcontent-title {
+        font-size: 15px;
+    }
+    #adminSidebar-tabActive {
+        font-size: 13px;
+    }
+    #adminSidebar-tabInactive {
+        font-size: 13px;
     }
 }
