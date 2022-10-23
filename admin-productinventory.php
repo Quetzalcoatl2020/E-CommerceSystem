@@ -72,55 +72,63 @@
     </div>
 
     <!--Main Content-->
-    <div class="container justify-content-center border shadow p-3 mb-5 bg-white rounded" id="admin-maincontainer">
-        <h4>Manage Inventory</h4>
-        <div class="table-responsive">
-            <table class="table table-hover table-striped">
-                <thead>
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Product Name</th>
-                    <th scope="col">Category</th>
-                    <th scope="col">SKU</th>
-                    <th scope="col">Price Per Unit</th>
-                    <th scope="col">Current Stock</th>
-                    <th scope="col">Availability</th>
-                    <th scope="col">Actions</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td> All Purpose Electric Drill</td>
-                    <td>Tools</td>
-                    <td>SRT0001</td>
-                    <td>2500</td>
-                    <td>200</td>
-                    <td>Available</td>
-                    <td>Update</td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td> All Purpose Electric Drill</td>
-                    <td>Tools</td>
-                    <td>SRT0001</td>
-                    <td>2500</td>
-                    <td>200</td>
-                    <td>Available</td>
-                    <td>Update</td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td> All Purpose Electric Drill</td>
-                    <td>Tools</td>
-                    <td>SRT0001</td>
-                    <td>2500</td>
-                    <td>200</td>
-                    <td>Available</td>
-                    <td>Update</td>
-                </tr>
-                </tbody>
-            </table>
+    <div class="container" id="admin-maincontainer">
+        <div class="container justify-content-center border shadow p-3 mb-5 bg-white rounded" id="admin-tablecontainer">
+            <h4 id="table-title">Manage Inventory</h4>
+            <div class="table-responsive">
+                <table class="table table-hover table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Product Name</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">SKU</th>
+                        <th scope="col">Price Per Unit</th>
+                        <th scope="col">Current Stock</th>
+                        <th scope="col">Product Status</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td> All Purpose Electric Drill</td>
+                        <td>Tools</td>
+                        <td>SRT0001</td>
+                        <td>2500</td>
+                        <td>200</td>
+                        <td>Active</td>
+                        <td>
+                            <button class="btn btn-success" title="Update Stocks" id="updatestock-btn"><i class="bi bi-pencil-fill"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td> All Purpose Electric Drill</td>
+                        <td>Tools</td>
+                        <td>SRT0001</td>
+                        <td>2500</td>
+                        <td>200</td>
+                        <td>Active</td>
+                        <td>
+                            <button class="btn btn-success" title="Update Stocks" id="updatestock-btn"><i class="bi bi-pencil-fill"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td> All Purpose Electric Drill</td>
+                        <td>Tools</td>
+                        <td>SRT0001</td>
+                        <td>2500</td>
+                        <td>200</td>
+                        <td>Active</td>
+                        <td>
+                            <button class="btn btn-success" title="Update Stocks" id="updatestock-btn"><i class="bi bi-pencil-fill"></i></button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </body>

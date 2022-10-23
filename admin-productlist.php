@@ -72,55 +72,92 @@
     </div>
 
     <!--Main Content-->
-    <div class="container justify-content-center border shadow p-3 mb-5 bg-white rounded" id="admin-maincontainer">
-        <h4>Product List</h4>
-        <div class="table-responsive">
-            <table class="table table-hover table-striped">
-                <thead>
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Product Name</th>
-                    <th scope="col">Category</th>
-                    <th scope="col">SKU</th>
-                    <th scope="col">Price Per Unit</th>
-                    <th scope="col">Current Stock</th>
-                    <th scope="col">Availability</th>
-                    <th scope="col">Actions</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td> All Purpose Electric Drill</td>
-                    <td>Tools</td>
-                    <td>SRT0001</td>
-                    <td>2500</td>
-                    <td>200</td>
-                    <td>Available</td>
-                    <td>Delete/Edit</td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td> All Purpose Electric Drill</td>
-                    <td>Tools</td>
-                    <td>SRT0001</td>
-                    <td>2500</td>
-                    <td>200</td>
-                    <td>Available</td>
-                    <td>Delete/Edit</td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td> All Purpose Electric Drill</td>
-                    <td>Tools</td>
-                    <td>SRT0001</td>
-                    <td>2500</td>
-                    <td>200</td>
-                    <td>Available</td>
-                    <td>Delete/Edit</td>
-                </tr>
-                </tbody>
-            </table>
+    <div class="container" id="admin-maincontainer">
+        <div class="container">
+            <form>
+                <h5 style="font-family: Verdana; text-align: left;">Add Product</h5>
+                <div class="form-row d-flex justify-content-center" style="padding-left: 15px; padding-right: 6px;">
+                    <div class="col-4" style="margin-right: 10px;">
+                        <input type="text" class="form-control" id="ProductName" placeholder="Product Name" required>
+                    </div>
+                    <div class="col-4" style="margin-right: 10px;">
+                        <select class="form-select" style="border: 2px solid dimgray" id="ProductCategoryDropdown" required>
+                            <option value="1" selected>Category 1</option>
+                            <option value="2">Category 2</option>
+                            <option value="3">Category 3</option>
+                        </select>
+                        </ul>
+                    </div>
+                    <div class="col-4" style="margin-right: 10px; margin-bottom: 10px;">
+                        <div class="input-group">
+                            <span class="input-group-text" style="border: 2px solid dimgray" id="ProductPrice-CurrencyLabel">₱</span>
+                            <input type="text" class="form-control" id="ProductPrice" placeholder="Price" required>
+                        </div>
+                    </div>
+                </div>
+                <input type="text" class="form-control" id="ProductDescription" placeholder="Product Description" required>
+                <button class="btn btn-dark mt-2" id="AddProductBtn" title="Add Product">Add New Product</button>
+            </form>
+        </div>
+        <div class="container justify-content-center border shadow p-3 mb-5 bg-white rounded" id="admin-tablecontainer">
+            <h4 id="table-title">Product List</h4>
+            <div class="table-responsive">
+                <table class="table table-hover table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col" id="tableCell-ProductName">Product Name</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">SKU</th>
+                        <th scope="col">Price Per Unit</th>
+                        <th scope="col">Current Stock</th>
+                        <th scope="col">Product Status</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td> All Purpose Electric Drill</td>
+                        <td>Tools</td>
+                        <td>SRT0001</td>
+                        <td>2500</td>
+                        <td>200</td>
+                        <td>Active</td>
+                        <td>
+                            <button class="btn btn-danger" title="Delete Product" id="deleteproduct-btn"><i class="bi bi-trash-fill"></i></button>
+                            <button class="btn btn-success" title="Edit Product Details" id="editproduct-btn"><i class="bi bi-pencil-fill"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td> All Purpose Electric Drill</td>
+                        <td>Tools</td>
+                        <td>SRT0001</td>
+                        <td>2500</td>
+                        <td>200</td>
+                        <td>Active</td>
+                        <td>
+                            <button class="btn btn-danger" title="Delete Product" id="deleteproduct-btn"><i class="bi bi-trash-fill"></i></button>
+                            <button class="btn btn-success" title="Edit Product Details" id="editproduct-btn"><i class="bi bi-pencil-fill"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td> All Purpose Electric Drill</td>
+                        <td>Tools</td>
+                        <td>SRT0001</td>
+                        <td>2500</td>
+                        <td>200</td>
+                        <td>Active</td>
+                        <td>
+                            <button class="btn btn-danger" title="Delete Product" id="deleteproduct-btn"><i class="bi bi-trash-fill"></i></button>
+                            <button class="btn btn-success" title="Edit Product Details" id="editproduct-btn"><i class="bi bi-pencil-fill"></i></button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </body>

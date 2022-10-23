@@ -334,6 +334,18 @@
 #admin-maincontainer {
     margin-top: 120px;
 }
+#admin-tablecontainer {
+}
+th {
+    font-family: Verdana;
+    font-size: 15px;
+}
+#table-title {
+    font-family: Verdana;
+}
+#deleteproduct-btn {
+    margin-right: 5px;
+}
 @media screen and (max-width: 575px){
 
     #linksignup {
@@ -565,6 +577,50 @@
         font-size: 13px;
     }
     #adminSidebar-tabInactive {
+        font-size: 13px;
+    }
+    th {
+        font-size: 11px;
+    }
+    #table-title {
+        font-size: 16px;
+    }
+    td {
+        font-size: 11px;
+    }
+    #ProductName {
+        text-align: center;
+        font-size: 11px;
+    }
+    #ProductPrice {
+        font-size: 11px;
+    }
+    #ProductPrice-CurrencyLabel {
+        text-align: center;
+        font-size: 11px;
+        padding-left: 2px;
+        padding-right: 2px;
+    }
+    #ProductCategoryDropdown {
+        text-align: center;
+        font-size: 11px;
+    }
+    #ProductDescription {
+        font-size: 11px;
+    }
+    #AddProductBtn {
+        font-size: 12px;
+    }
+    #editproduct-btn {
+        font-size: 13px;
+    }
+    #deleteproduct-btn {
+        font-size: 13px;
+    }
+    #updatestock-btn {
+        font-size: 13px;
+    }
+    #updateorder-btn {
         font-size: 13px;
     }
 }

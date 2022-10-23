@@ -72,59 +72,67 @@
     </div>
 
     <!--Main Content-->
-    <div class="container justify-content-center border shadow p-3 mb-5 bg-white rounded" id="admin-maincontainer">
-        <h4>Orders</h4>
-        <div class="table-responsive">
-            <table class="table table-hover table-striped">
-                <thead>
-                <tr>
-                    <th scope="col">Order ID</th>
-                    <th scope="col">Product Name</th> <!--Through Product ID-->
-                    <th scope="col">Buyer</th> <!--Through User ID-->
-                    <th scope="col">Quantity</th>
-                    <th scope="col">Total Amount</th>
-                    <th scope="col">Order Status</th>
-                    <th scope="col">Order Date</th>
-                    <th scope="col">Payment Status</th> <!-- Through Payment ID-->
-                    <th scope="col">Actions</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td> All Purpose Electric Drill</td>
-                    <td>John Smith</td>
-                    <td>1</td>
-                    <td>2500</td>
-                    <td>Confirming</td>
-                    <td>11/05/2022</td>
-                    <td>Paid</td>
-                    <td>Update</td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td> All Purpose Electric Drill</td>
-                    <td>John Smith</td>
-                    <td>1</td>
-                    <td>2500</td>
-                    <td>Confirming</td>
-                    <td>11/05/2022</td>
-                    <td>Paid</td>
-                    <td>Update</td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td> All Purpose Electric Drill</td>
-                    <td>John Smith</td>
-                    <td>1</td>
-                    <td>2500</td>
-                    <td>Confirming</td>
-                    <td>11/05/2022</td>
-                    <td>Paid</td>
-                    <td>Update</td>
-                </tr>
-                </tbody>
-            </table>
+    <div class="container" id="admin-maincontainer">
+        <div class="container justify-content-center border shadow p-3 mb-5 bg-white rounded" id="admin-tablecontainer">
+            <h4 id="table-title">Orders</h4>
+            <div class="table-responsive">
+                <table class="table table-hover table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">Order ID</th>
+                        <th scope="col">Product Name</th> <!--Through Product ID-->
+                        <th scope="col">Buyer</th> <!--Through User ID-->
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Total Amount</th>
+                        <th scope="col">Order Status</th>
+                        <th scope="col">Order Date</th>
+                        <th scope="col">Payment Status</th> <!-- Through Payment ID-->
+                        <th scope="col">Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td> All Purpose Electric Drill</td>
+                        <td>John Smith</td>
+                        <td>1</td>
+                        <td>2500</td>
+                        <td>Confirming</td>
+                        <td>11/05/2022</td>
+                        <td>Paid</td>
+                        <td>
+                            <button class="btn btn-success" title="Update Order" id="updateorder-btn"><i class="bi bi-pencil-fill"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td> All Purpose Electric Drill</td>
+                        <td>John Smith</td>
+                        <td>1</td>
+                        <td>2500</td>
+                        <td>Confirming</td>
+                        <td>11/05/2022</td>
+                        <td>Paid</td>
+                        <td>
+                            <button class="btn btn-success" title="Update Order" id="updateorder-btn"><i class="bi bi-pencil-fill"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td> All Purpose Electric Drill</td>
+                        <td>John Smith</td>
+                        <td>1</td>
+                        <td>2500</td>
+                        <td>Confirming</td>
+                        <td>11/05/2022</td>
+                        <td>Paid</td>
+                        <td>
+                            <button class="btn btn-success" title="Update Order" id="updateorder-btn"><i class="bi bi-pencil-fill"></i></button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </body>

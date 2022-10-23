@@ -72,44 +72,46 @@
     </div>
 
     <!--Main Content-->
-    <div class="container justify-content-center border shadow p-3 mb-5 bg-white rounded" id="admin-maincontainer">
-        <h4>Activity Log</h4>
-        <div class="table-responsive">
-            <table class="table table-hover table-striped">
-                <thead>
-                <tr>
-                    <th scope="col">Activity ID</th>
-                    <th scope="col">Admin ID</th>
-                    <th scope="col">Admin Name</th>
-                    <th scope="col">Activity</th>
-                    <th scope="col">Description</th>
+    <div class="container" id="admin-maincontainer">
+        <div class="container justify-content-center border shadow p-3 mb-5 bg-white rounded" id="admin-tablecontainer">
+            <h4 id="table-title">Activity Log</h4>
+            <div class="table-responsive">
+                <table class="table table-hover table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">Activity ID</th>
+                        <th scope="col">Admin ID</th>
+                        <th scope="col">Admin Name</th>
+                        <th scope="col">Activity</th>
+                        <th scope="col">Description</th>
 
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>1</td>
-                    <td>Jemrel Mangaliman</td>
-                    <td>Order Update</td>
-                    <td>Updated the order status of Order 00001 from confirming to pending</td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>1</td>
-                    <td>Jemrel Mangaliman</td>
-                    <td>Order Update</td>
-                    <td>Updated the order status of Order 00001 from confirming to pending</td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>1</td>
-                    <td>Jemrel Mangaliman</td>
-                    <td>Order Update</td>
-                    <td>Updated the order status of Order 00001 from confirming to pending</td>
-                </tr>
-                </tbody>
-            </table>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>1</td>
+                        <td>Jemrel Mangaliman</td>
+                        <td>Order Update</td>
+                        <td>Updated the order status of Order 00001 from confirming to pending</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>1</td>
+                        <td>Jemrel Mangaliman</td>
+                        <td>Order Update</td>
+                        <td>Updated the order status of Order 00001 from confirming to pending</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>1</td>
+                        <td>Jemrel Mangaliman</td>
+                        <td>Order Update</td>
+                        <td>Updated the order status of Order 00001 from confirming to pending</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </body>
