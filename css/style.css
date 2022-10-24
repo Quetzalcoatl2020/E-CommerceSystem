@@ -623,4 +623,10 @@ th {
     #updateorder-btn {
         font-size: 13px;
     }
+    #admin-maincontainer {
+        margin-top: 75px;
+    }
+    #addproduct-label {
+        font-size: 16px;
+    }
 }
