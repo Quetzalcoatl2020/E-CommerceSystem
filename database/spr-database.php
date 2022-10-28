@@ -156,4 +156,7 @@ $password = "";
     } else {
         echo "Error creating Payment table: " . mysqli_error($newConn);
     }
+
+    //closing the connection
+    mysqli_close($newConn);
 ?>

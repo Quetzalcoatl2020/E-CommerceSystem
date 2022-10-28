@@ -162,6 +162,36 @@
     height: auto;
     display: none;
 }
+#EditProfileInput-ErrorContainer {
+    background-color: #ffcdd2;
+    border: 1px solid #d9534f;
+    height: auto;
+    display: none;
+}
+#EditProfileInput-ErrorText {
+    color: #b21f2d;
+    margin-bottom: 2px;
+}
+#IncProfileInfo-ErrorText {
+    color: green;
+    margin-bottom: 2px;
+}
+#ServerSide-ErrorContainer {
+    background-color: #ffcdd2;
+    border: 1px solid #d9534f;
+    height: auto;
+}
+#IncInfoError-MainContainer {
+    background-color: white;
+    display: flex;
+}
+#IncProfileInfo-ServerSide-ErrorContainer {
+    background-color: #D9F8C4;
+    border: 1px solid #5cb85c;
+    height: auto;
+    width: 500px;
+    display: block;
+}
 #FormInput-ErrorText {
     color: #b21f2d;
     margin-bottom: 2px;
@@ -190,7 +220,7 @@
     background-color: white;
 }
 #profile-secondarycontainer {
-    padding-top: 20px;
+    padding-top: 10px;
     background-color: white;
     -webkit-box-shadow: 0px 2px 2px 0px #969696;
     padding-bottom: 0px;
@@ -294,6 +324,15 @@
     -webkit-appearance: none;
     margin: 0;
 }*/
+
+#Edit-ZipCode::-webkit-outer-spin-button,
+#Edit-ZipCode::-webkit-inner-spin-button,
+#Edit-ContactNumber::-webkit-outer-spin-button,
+#Edit-ContactNumber::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 #edit-profile-button:hover {
     color: black;
 }
@@ -305,6 +344,9 @@
     background-color: white;
     color: black;
     border-color: white;
+}
+#EditProfile-ModalTitle {
+    font-family: Verdana;
 }
 #productcartcontainer {
     display: block;
@@ -399,6 +441,9 @@ th {
     #FormInput-ErrorText {
         font-size: 12px;
     }
+    #EditProfileInput-ErrorText {
+        font-size: 12px;
+    }
     #FirstName  {
         height: 30px;
         font-size: 12px;
@@ -415,11 +460,27 @@ th {
         height: 30px;
         font-size: 12px;
     }
-    #ZipCode  {
+    #Edit-FirstName  {
         height: 30px;
         font-size: 12px;
     }
-    #ContactNumber  {
+    #Edit-LastName  {
+        height: 30px;
+        font-size: 12px;
+    }
+    #Edit-Email  {
+        height: 30px;
+        font-size: 12px;
+    }
+    #Edit-Address  {
+        height: 30px;
+        font-size: 12px;
+    }
+    #Edit-ZipCode  {
+        height: 30px;
+        font-size: 12px;
+    }
+    #Edit-ContactNumber  {
         height: 30px;
         font-size: 12px;
     }
@@ -431,11 +492,11 @@ th {
         height: 30px;
         font-size: 12px;
     }
-    #CurrentPassword  {
+    #Edit-CurrentPassword  {
         height: 30px;
         font-size: 12px;
     }
-    #NewPassword  {
+    #Edit-NewPassword  {
         height: 30px;
         font-size: 12px;
     }
@@ -628,5 +689,12 @@ th {
     }
     #addproduct-label {
         font-size: 16px;
+    }
+    #IncProfileInfo-ErrorText {
+        font-size: 12px;
+        margin-top: 3px;
+    }
+    #IncProfileInfo-ServerSide-ErrorContainer {
+        width: 300px;
     }
 }

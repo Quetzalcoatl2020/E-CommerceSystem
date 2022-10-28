@@ -1,3 +1,26 @@
+<?php
+session_start();
+$conn = require 'database/connection.php';
+
+    //getting user information using stored UserID from Session variable
+    if (isset($_SESSION['UserID'])){
+        $UID = $_SESSION['UserID'];
+        $UserInformationQuery = "SELECT * FROM user where UserID='$UID'";
+        $UserInformationQueryExecution = mysqli_query($conn,$UserInformationQuery);
+        $UserInformation = mysqli_fetch_assoc($UserInformationQueryExecution);
+
+        if($UserInformation['PostalCode'] == 0 || $UserInformation['PhoneNumber'] == 0){
+            $_SESSION['IncompleteProfile'] = "Add postal code and phone number to begin your shopping";
+        }
+        else {
+            unset($_SESSION['IncompleteProfile']);
+        }
+    } else {
+        $_SESSION['Login_Error'] = "Please login first.";
+        header("Location: index.php");
+    }
+
+?>
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="bootstrap-4.0.0-dist/css/bootstrap.min.css">
@@ -64,7 +87,7 @@
                 <div class="col-sm-8" id="profile-userinfoheader">
                     <div class="row" style="margin-bottom: -5px;">
                         <div class="col-11">
-                            <p class="h4" id="user-name">Jemrel Ricky Mangaliman</p>
+                            <p class="h4" id="user-name"><?php echo $UserInformation['FirstName']." ".$UserInformation['LastName']; ?> </p>
                         </div>
                         <div class="col-1" style="margin-left: -35px;">
                             <!-- Button trigger modal -->
@@ -74,13 +97,27 @@
                         </div>
                     </div>
                     <div class="row" style="margin-bottom: -15px;">
-                        <p id="user-email">mangalimanjemrel@gmail.com</p>
+                        <p id="user-email"><?php echo $UserInformation['Email']; ?></p>
                     </div>
                     <div class="row">
-                        <small id="user-address">Cavite, Region 4-A, Luzon, Philippines, Earth, Milky Way Galaxy</small>
+                        <small id="user-address"><?php echo $UserInformation['Address']; ?></small>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="container-fluid justify-content-center pt-1" id="IncInfoError-MainContainer">
+            <!-- server-side error prompt-->
+            <?php
+            if (isset($_SESSION['IncompleteProfile'])) { ?>
+                <div class="container rounded d-flex justify-content-center p-1" id="IncProfileInfo-ServerSide-ErrorContainer">
+                    <p class="text-center" id="IncProfileInfo-ErrorText"><?php echo $_SESSION['IncompleteProfile']?></p>
+                    <button type="button" onclick="hideIncompleteInfoNotice()" class="close text-danger ml-4 mb-1" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <?php
+            }
+            ?>
         </div>
         <!-- Code for tabs (Cart, Pending, Completed)-->
         <div class="container-fluid d-flex justify-content-center" id="profile-secondarycontainer">
@@ -298,39 +335,45 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form id="edit-profile-form">
+                        <form id="edit-profile-form" onsubmit="EditProfile_onSubmitInputValidation()" action="process-controllers/controls-editprofile.php" method="POST">
+                            <!-- client-side error prompt-->
+                            <div class="form-group rounded" id="EditProfileInput-ErrorContainer">
+                                <p class="text-center" id="EditProfileInput-ErrorText">Please follow correct input formats.</p>
+                            </div>
                             <div class="form-row">
                                 <div class="col">
-                                    <input type="text" class="form-control" id="FirstName" placeholder="First Name" onfocusout="checknameformat();" onkeyup="firstnamevalidate();" required>
+                                    <input type="text" class="form-control" id="Edit-FirstName" placeholder="First Name" name="FirstName" value="<?php echo $UserInformation['FirstName']; ?>" onfocusout="checknameformat();" onkeyup="firstnamevalidate();" required>
                                 </div>
                                 <div class="col">
-                                    <input type="text" class="form-control" id="LastName" placeholder="Last Name" onfocusout="checknameformat();" onkeyup="lastnamevalidate();" required>
+                                    <input type="text" class="form-control" id="Edit-LastName" placeholder="Last Name" name="LastName" value="<?php echo $UserInformation['LastName']; ?>" onfocusout="checknameformat();" onkeyup="lastnamevalidate();" required>
                                 </div>
                             </div>
                             <!--small text input indicator below name textbox-->
                             <small class="form-text text-danger justify-content-start" id="nameError">First and last name must be at least 2 characters and contain letters only.</small>
                             <!-- email text box-->
                             <div class="form-group" style="margin-top: 15px">
-                                <input type="email" class="form-control" id="Email" placeholder="Email" required>
+                                <input type="email" class="form-control" id="Edit-Email" name="Email" value="<?php echo $UserInformation['Email']; ?>" placeholder="Email" required>
                             </div>
                             <!-- address text box-->
                             <div class="form-group">
-                                <input type="text" class="form-control" id="Address" placeholder="Complete Address" required>
+                                <input type="text" class="form-control" id="Edit-Address" name="Address" value="<?php echo $UserInformation['Address']; ?>" placeholder="Complete Address" required>
                             </div>
                             <!-- Zip Code text box-->
                             <div class="form-group">
-                                <input type="text" class="form-control" id="ZipCode" placeholder="Zip Code" required>
+                                <input type="number" class="form-control" id="Edit-ZipCode" name="ZipCode" value="<?php if($UserInformation['PostalCode'] != 0){ echo $UserInformation['PostalCode']; } ?>" placeholder="Zip Code" required>
                             </div>
                             <!-- Contact Number text box-->
                             <div class="form-group">
-                                <input type="text" class="form-control" id="ContactNumber" placeholder="Contact Number" required>
+                                <input type="number" class="form-control" id="Edit-ContactNumber" name="ContactNumber" value="0<?php if($UserInformation['PhoneNumber'] != 0){ echo $UserInformation['PhoneNumber']; } ?>" placeholder="Contact Number" required>
                             </div>
+                            <hr style="margin-bottom: 6px;">
+                            <h6 style="font-family: Verdana;">Change Password</h6>
                             <!-- password text box-->
                             <div class="form-group" style="margin-bottom: 20px;">
-                                <input type="password" class="form-control" id="CurrentPassword" placeholder="Current Password" onkeyup="passwordformat()" required>
+                                <input type="password" class="form-control" id="Edit-CurrentPassword" name="Password1" placeholder="Current Password" onkeyup="passwordformat()">
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control" id="NewPassword" placeholder="New Password" onkeyup="newpasswordformat()" onfocus="showpassformat()" onfocusout="hidepassformat()">
+                                <input type="password" class="form-control" id="Edit-NewPassword" name="Password2" placeholder="New Password" onkeyup="newpasswordformat()" onfocus="showpassformat()" onfocusout="hidepassformat()">
                             </div>
                             <!--small text input indicators that shows guidelines in password format-->
                             <div class="form-row" style="margin-top: -20px; margin-bottom: 7px">
@@ -344,12 +387,11 @@
                                     <small class="form-text justify-content-start" id="passSpecialChar"><i class="bi bi-check-circle" id="passSpecialChar_checkcircle"></i><i class="bi bi-check-circle-fill" id="passSpecialChar_circlefill"></i>contains special character</small>
                                 </div>
                             </div>
-
-                        </form>
                     </div>
                     <div class="modal-footer bg-dark">
-                        <button type="button" class="btn btn-outline-light">Save Changes</button>
+                        <button type="submit" id="formbutton-editprofile" class="btn btn-outline-light">Save Changes</button>
                     </div>
+                    </form>
                 </div>
             </div>
         </div>
