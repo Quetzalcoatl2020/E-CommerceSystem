@@ -36,6 +36,7 @@ $conn = require '../database/connection.php';
     else {
         $_SESSION['EditInfo-Status'] = "Invalid email format.";
         header("Location: ../user-profile.php");
+        exit();
     }
     //address
     if($UserInformation['Address'] == $address){
@@ -59,26 +60,28 @@ $conn = require '../database/connection.php';
 
         //checking if the current password inputted matches the password in the database
         if ($DecryptedPassword) {
-            if($DecryptedPassword == $newpass){ //if raw password == the inputted new password
+            if($currentpass == $newpass){ //if raw password == the inputted new password
                 $_SESSION['EditInfo-Status'] = "The new password you inputted is the same with your current password.";
                 header("Location: ../user-profile.php");
+                exit();
             }
             else {
-                $newpass = password_hash($newpass, PASSWORD_DEFAULT);
+                $newpassfinal = password_hash($newpass, PASSWORD_DEFAULT);
             }
         }
         else { //if the inputted password does not match the password in the database
             $_SESSION['EditInfo-Status'] = "Incorrect password.";
             header("Location: ../user-profile.php");
+            exit();
         }
     }
     else {
-        $newpass = $EncryptedPassword;
+        $newpassfinal = $EncryptedPassword;
     }
 
     //Updating of User Information
     $UpdateInfoQuery = "UPDATE user SET 
-                 FirstName = '$firstname', LastName = '$lastname', Email = '$email', Address = '$address', PostalCode = '$postalcode', PhoneNumber = '$phonenumber', Password = '$newpass' Where UserID = '$UserID'";
+                 FirstName = '$firstname', LastName = '$lastname', Email = '$email', Address = '$address', PostalCode = '$postalcode', PhoneNumber = '$phonenumber', Password = '$newpassfinal' Where UserID = '$UserID'";
 
     //Query Execution
     if(mysqli_query($conn,$UpdateInfoQuery)){

@@ -47,6 +47,7 @@
 #navlist {
     list-style-type: none;
     align-items: center;
+    margin-right: -29px;
 }
 #landingcontent-smalldescription {
     color: white;
@@ -294,6 +295,7 @@
     width: 900px;
     height: auto;
     border-radius: 1px;
+    display: none;
 }
 #product-img {
     width: 80px;
@@ -308,6 +310,12 @@
 #product-total-price {
     font-size: 17px;
 }
+#CategoryCode {
+    margin-left: -13px;
+}
+#AddCategoryBtn {
+    margin-left: -15px;
+}
 .navbar-nav {
     margin-right: 50px;
 }
@@ -319,11 +327,11 @@
     width: 60px;
     height: 30px;
 }
-/*#cart-quantity-input::-webkit-outer-spin-button,
-#cart-quantity-input::-webkit-inner-spin-button {
+#ProductPrice::-webkit-outer-spin-button,
+#ProductPrice::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
-}*/
+}
 
 #Edit-ZipCode::-webkit-outer-spin-button,
 #Edit-ZipCode::-webkit-inner-spin-button,
@@ -363,6 +371,7 @@
 }
 #adminlogoutcontainer {
     margin-bottom: -15px;
+    margin-left: -20px;
 }
 #adminnavdropdown {
     margin-left: -90px;
@@ -374,7 +383,8 @@
     background-color: lightgray;
 }
 #admin-maincontainer {
-    margin-top: 120px;
+    margin-top: 90px;
+    padding: 10px;
 }
 #admin-tablecontainer {
 }
@@ -388,6 +398,60 @@ th {
 #deleteproduct-btn {
     margin-right: 5px;
 }
+#Error-AlertDialog {
+    position: absolute;
+    margin-top: 80px;
+    right: 8px;
+    z-index: 0;
+    opacity: 0;
+    animation: fadeinout 5s ease-in-out 1;
+    height: auto;
+    padding-bottom: 5px;
+
+}
+#AdminError-AlertDialog {
+    position: absolute;
+    margin-top: -20px;
+    right: 8px;
+    z-index: 0;
+    opacity: 0;
+    animation: fadeinout 5s ease-in-out 1;
+    height: auto;
+    padding-bottom: 5px;
+
+}
+@keyframes fadeinout {
+    /* 40% would be 3secs, 60% 4.5 secs */
+    5% {
+        z-index: 1;
+        opacity: 1;
+    }
+    50%{
+        z-index: 1;
+        opacity: 1;
+    }
+    75%{
+        z-index: 1;
+        opacity: 1;
+    }
+    99% {
+        opacity: 0;
+    }
+}
+#Error-AlertDialogText {
+    margin-top: 5px;
+}
+#Error-AlertClose {
+    margin-top: -14px;
+}
+#AdminError-AlertDialogText {
+    margin-top: 5px;
+}
+#AdminError-AlertClose {
+    margin-top: -14px;
+    font-size: 22px;
+}
+
 @media screen and (max-width: 575px){
 
     #linksignup {
@@ -572,7 +636,7 @@ th {
     #user-name {
         text-align: center;
         font-size: 16px;
-        margin-left: 36px;
+        margin-left: 30px;
     }
     #user-email {
         text-align: center;
@@ -601,9 +665,6 @@ th {
     }
     #product-total-price {
         font-size: 11px;
-    }
-    #product-label-bar {
-        display: none;
     }
     #cart-quantity-input {
         width: 45px;
@@ -672,6 +733,19 @@ th {
     #AddProductBtn {
         font-size: 12px;
     }
+    #AddCategoryBtn {
+        font-size: 12px;
+        margin-top: 6px;
+        margin-left: 0px;
+    }
+    #CategoryName {
+        font-size: 11px;
+    }
+    #CategoryCode {
+        margin-top: 6px;
+        font-size: 11px;
+        margin-left: 0px;
+    }
     #editproduct-btn {
         font-size: 13px;
     }
@@ -689,6 +763,7 @@ th {
     }
     #addproduct-label {
         font-size: 16px;
+        font-family: Verdana;
     }
     #IncProfileInfo-ErrorText {
         font-size: 12px;
@@ -697,4 +772,40 @@ th {
     #IncProfileInfo-ServerSide-ErrorContainer {
         width: 300px;
     }
+    #Error-AlertDialog {
+        margin-top: 70px;
+        width: 220px;
+        height: auto;
+        padding-bottom: 0px;
+    }
+    #Error-AlertClose {
+        font-size: 15px;
+        margin-top: -12px;
+    }
+    #Error-AlertDialogText {
+        margin-top: 3px;
+        font-size: 13px;
+    }
+    #AdminError-AlertDialog {
+        margin-top: 0px;
+        width: 220px;
+        height: auto;
+        padding-bottom: 0px;
+    }
+    #AdminError-AlertClose {
+        font-size: 20px;
+        margin-top: -12px;
+    }
+    #AdminError-AlertDialogText {
+        margin-top: 3px;
+        font-size: 13px;
+    }
+    #ProductImageFile {
+        font-size: 13px;
+        margin-top: 10px;
+    }
+    #hamburgerbutton {
+        margin-left: -15px;
+    }
+
 }

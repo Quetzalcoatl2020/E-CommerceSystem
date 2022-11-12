@@ -35,6 +35,22 @@ $conn = require 'database/connection.php';
     <script type="text/javascript" src="js/functions-js.js"></script>
 </head>
 <body class="bg-light">
+
+    <!-- server-side error prompt-->
+    <?php
+    if (isset($_SESSION['EditInfo-Status'])) { ?>
+        <!-- Alert dialog for user info editing errors -->
+        <div class="alert alert-info d-flex justify-content-between" role="alert" id="Error-AlertDialog">
+            <p id="Error-AlertDialogText"><?php echo $_SESSION['EditInfo-Status']?></p>
+            <button type="button" class="close ml-3" id="Error-AlertClose" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <?php
+    }
+    unset($_SESSION['EditInfo-Status']);
+    ?>
+
 <!-- Navigation bar at the top page -->
     <nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark">
         <span class="navbar-brand h1">Shoppr</span>
@@ -111,7 +127,7 @@ $conn = require 'database/connection.php';
             if (isset($_SESSION['IncompleteProfile'])) { ?>
                 <div class="container rounded d-flex justify-content-center p-1" id="IncProfileInfo-ServerSide-ErrorContainer">
                     <p class="text-center" id="IncProfileInfo-ErrorText"><?php echo $_SESSION['IncompleteProfile']?></p>
-                    <button type="button" onclick="hideIncompleteInfoNotice()" class="close text-danger ml-4 mb-1" aria-label="Close">
+                    <button type="button" onclick="hideIncompleteInfoNotice()" class="close text-success ml-4 mb-1" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -326,7 +342,7 @@ $conn = require 'database/connection.php';
 
         <!-- Modal for user information viewing and editing -->
         <div class="modal fade" id="UserInformationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-            <div class="modal-dialog" role="document">
+            <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header pt-2 pb-2 bg-dark">
                         <h5 class="modal-title text-light" id="EditProfile-ModalTitle">Edit Profile</h5>

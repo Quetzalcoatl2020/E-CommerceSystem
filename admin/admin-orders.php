@@ -57,7 +57,7 @@
         </div>
         <div class="offcanvas-body p-0">
             <div>
-                <a href="admin-productlist.php" class="nav-link" id="adminSidebar-tabInactive">Product List</a>
+                <a href="admin-products.php" class="nav-link" id="adminSidebar-tabInactive">Products</a>
             </div>
             <div>
                 <a href="admin-productinventory.php" class="nav-link" id="adminSidebar-tabInactive">Manage Inventory</a>

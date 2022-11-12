@@ -30,3 +30,4 @@ $conn = require '../database/connection.php';
         $_SESSION['Login_Error'] = "Your email does not match any accounts in the system.";
         header("Location: ../index.php");
     }
+    ?>
