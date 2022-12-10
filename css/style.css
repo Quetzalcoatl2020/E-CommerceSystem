@@ -47,7 +47,10 @@
 #navlist {
     list-style-type: none;
     align-items: center;
-    margin-right: -29px;
+}
+#admin-navlist {
+    list-style-type: none;
+    align-items: center;
 }
 #landingcontent-smalldescription {
     color: white;
@@ -371,10 +374,11 @@
 }
 #adminlogoutcontainer {
     margin-bottom: -15px;
-    margin-left: -20px;
+    margin-right: -10px;
 }
 #adminnavdropdown {
-    margin-left: -90px;
+    margin-right: 20px;
+    width: 150px;
 }
 #sidebarcontent {
     width: 300px;
@@ -395,8 +399,11 @@ th {
 #table-title {
     font-family: Verdana;
 }
-#deleteproduct-btn {
-    margin-right: 5px;
+#DeleteProductBtn {
+    width: 150px;
+}
+#EditProductBtn {
+    width: 150px;
 }
 #Error-AlertDialog {
     position: absolute;
@@ -451,6 +458,35 @@ th {
     margin-top: -14px;
     font-size: 22px;
 }
+#ProductImage {
+    width: 170px;
+    height: 150px;
+}
+#editproductimage-label {
+    margin-right: 10px;
+    margin-top: 3px;
+}
+#currentproductimage-container {
+    width: 265px;
+    margin-left: 0px;
+}
+#stockinput-container {
+    width: 600px;
+}
+#editproduct-buttoncontainer {
+    display: flex;
+    justify-content: start;
+}
+#deleteaccount-buttoncontainer {
+    display: flex;
+    justify-content: start;
+}
+#EditAccountBtn {
+    width: 150px;
+}
+#DeleteAccountBtn {
+    width: 150px;
+}
 
 @media screen and (max-width: 575px){
 
@@ -461,7 +497,7 @@ th {
     .navbar-brand {
         width: 50px;
         height: 30px;
-        font-size: 19px;
+        font-size: 17px;
         margin-left: 5px;
     }
     #signupform {
@@ -675,10 +711,10 @@ th {
         font-size: 10px;
     }
     #adminMenuDropdown {
-        font-size: 14px;
+        font-size: 12px;
     }
     #adminMenuItem {
-        font-size: 14px;
+        font-size: 12px;
     }
     #adminmenuicon {
         font-size: 14px;
@@ -687,7 +723,8 @@ th {
         font-size: 20px;
     }
     #adminnavdropdown {
-        margin-left: -90px;
+        margin-right: 20px;
+        width: 90px;
     }
     #sidebarcontent {
         width: 200px;
@@ -714,6 +751,15 @@ th {
         text-align: center;
         font-size: 11px;
     }
+    #ProductLastAddedStockCount {
+        font-size: 11px;
+    }
+    #ProductCurrentStockCount {
+        font-size: 11px;
+    }
+    #AddStock {
+        font-size: 11px;
+    }
     #ProductPrice {
         font-size: 11px;
     }
@@ -727,16 +773,48 @@ th {
         text-align: center;
         font-size: 11px;
     }
+    #ProductStatusDropdown {
+        text-align: center;
+        font-size: 11px;
+    }
+    #AccountStatusDropdown {
+        text-align: center;
+        font-size: 11px;
+    }
     #ProductDescription {
         font-size: 11px;
     }
     #AddProductBtn {
         font-size: 12px;
     }
+    #DeleteProductBtn {
+        font-size: 12px;
+    }
+    #EditProductBtn {
+        font-size: 12px;
+    }
+    #EditProductInventoryBtn {
+        font-size: 12px;
+    }
     #AddCategoryBtn {
         font-size: 12px;
         margin-top: 6px;
         margin-left: 0px;
+    }
+    #AddAccountBtn {
+        font-size: 12px;
+        margin-top: 6px;
+        margin-left: 6px;
+    }
+    #EditAccountBtn {
+        font-size: 12px;
+        margin-top: 6px;
+        margin-left: 6px;
+    }
+    #DeleteAccountBtn {
+        font-size: 12px;
+        margin-top: 6px;
+        margin-left: 6px;
     }
     #CategoryName {
         font-size: 11px;
@@ -747,6 +825,12 @@ th {
         margin-left: 0px;
     }
     #editproduct-btn {
+        font-size: 13px;
+    }
+    #editaccount-btn {
+        font-size: 13px;
+    }
+    #editproductinventory-btn {
         font-size: 13px;
     }
     #deleteproduct-btn {
@@ -762,6 +846,18 @@ th {
         margin-top: 75px;
     }
     #addproduct-label {
+        font-size: 16px;
+        font-family: Verdana;
+    }
+    #addaccount-label {
+        font-size: 16px;
+        font-family: Verdana;
+    }
+    #editproduct-label {
+        font-size: 16px;
+        font-family: Verdana;
+    }
+    #editproductimage-label {
         font-size: 16px;
         font-family: Verdana;
     }
@@ -804,8 +900,36 @@ th {
         font-size: 13px;
         margin-top: 10px;
     }
+    #ProductImage {
+        width: 120px;
+        height: 100px;
+    }
+    #editproductimage-label {
+        font-size: 14px;
+    }
     #hamburgerbutton {
         margin-left: -15px;
     }
-
+    #currentproductimage-container {
+        width: 265px;
+        margin: auto;
+    }
+    #stockinput-container {
+        width: auto;
+    }
+    #stockinput-label{
+        font-size: 11px;
+        align-self: center;
+    }
+    #small-label {
+        font-size: 11px;
+    }
+    #editproduct-buttoncontainer {
+        display: flex;
+        justify-content: center;
+    }
+    #deleteaccount-buttoncontainer {
+        display: flex;
+        justify-content: center;
+    }
 }

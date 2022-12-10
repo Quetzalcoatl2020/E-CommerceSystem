@@ -15,12 +15,28 @@ $conn = require '../database/connection.php';
         exit();
     }
 
-unset($_SESSION['prdctid']);
+    if(!isset($_GET['prdctid']) || $_GET['prdctid'] == "") {
+        $_SESSION['AddProduct-Status'] = "No product selected.";
+        header("Location: ../admin/admin-products.php");
+        exit();
+    }
+    else {
+        $ProductID = $_GET['prdctid'];
+        //Setting a session variable to store the product ID
+        $_SESSION['prdctid'] = $ProductID;
+
+        $ProductQuery = "SELECT * FROM product WHERE ProductID='$ProductID'";
+        $ProductQueryExecution = mysqli_query($conn, $ProductQuery);
+        $ProductQueryResult = mysqli_fetch_assoc($ProductQueryExecution);
+    }
+
+
+
 ?>
 <html>
 <head>
 
-    <title>Products - Shoppr</title>
+    <title>Edit Product - Shoppr</title>
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -37,34 +53,19 @@ unset($_SESSION['prdctid']);
 </head>
 <body>
 
-    <!-- server-side error prompt for adding category-->
+<!-- server-side error prompt for adding product-->
     <?php
-    if (isset($_SESSION['AddCategory-Status'])) { ?>
+    if (isset($_SESSION['EditProduct-Status'])) { ?>
         <!-- Alert dialog for user info editing errors -->
         <div class="alert alert-info d-flex justify-content-between" role="alert" id="AdminError-AlertDialog">
-            <p id="AdminError-AlertDialogText"><?php echo $_SESSION['AddCategory-Status']?></p>
+            <p id="AdminError-AlertDialogText"><?php echo $_SESSION['EditProduct-Status']?></p>
             <button type="button" class="close ml-3 bg-transparent border-0" id="AdminError-AlertClose" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
         <?php
     }
-    unset($_SESSION['AddCategory-Status']);
-    ?>
-
-    <!-- server-side error prompt for adding product-->
-    <?php
-    if (isset($_SESSION['AddProduct-Status'])) { ?>
-        <!-- Alert dialog for user info editing errors -->
-        <div class="alert alert-info d-flex justify-content-between" role="alert" id="AdminError-AlertDialog">
-            <p id="AdminError-AlertDialogText"><?php echo $_SESSION['AddProduct-Status']?></p>
-            <button type="button" class="close ml-3 bg-transparent border-0" id="AdminError-AlertClose" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <?php
-    }
-    unset($_SESSION['AddProduct-Status']);
+    unset($_SESSION['EditProduct-Status']);
     ?>
 
     <!-- Navigation bar at the top page -->
@@ -128,125 +129,78 @@ unset($_SESSION['prdctid']);
 
     <!--Main Content-->
     <div class="container" id="admin-maincontainer">
-        <h2 id="admin-pagetitle">Products</h2>
+        <h2 id="admin-pagetitle">Edit Product</h2>
         <hr>
         <div class="container p-1">
-            <!-- Form for adding new product-->
-            <form action="../process-controllers/controls-addproduct.php" method="POST" enctype="multipart/form-data">
-                <h5 style="font-family: Verdana; text-align: left;" id="addproduct-label">Add Product</h5>
+            <!-- Form for editting product-->
+            <form action="../process-controllers/controls-editproduct.php" method="POST" enctype="multipart/form-data">
+                <h5 style="font-family: Verdana; text-align: left;" id="editproduct-label">Product Details</h5>
                 <div class="form-row d-flex justify-content-center" style="padding-left: 15px; padding-right: 6px;">
                     <div class="col-4" style="margin-right: 10px;">
-                        <input type="text" class="form-control" id="ProductName" name="ProductName" placeholder="Item Name" required>
+                        <input type="text" class="form-control" id="ProductName" name="Edit-ProductName" placeholder="Item Name" value="<?php echo $ProductQueryResult['ProductName'];?>" required>
                     </div>
                     <div class="col-4" style="margin-right: 10px;">
-                        <select type="number" class="form-select" style="border: 2px solid dimgray" id="ProductCategoryDropdown" name="ProductCategoryDropdown" required>
-                            <option value="0" selected>--Select Category--</option>
+                        <select type="number" class="form-select" style="border: 2px solid dimgray" id="ProductCategoryDropdown" name="Edit-ProductCategoryDropdown" disabled>
                             <?php
-                            //getting the categories
-                            $CategoryQuery = "SELECT * FROM category";
+                            $ProductCategoryID = $ProductQueryResult['CategoryID'];
+                            $CategoryQuery = "SELECT * FROM category WHERE CategoryID='$ProductCategoryID'";
                             $CategoryQueryExecution = mysqli_query($conn, $CategoryQuery);
-
-                            while ($CategoryQueryResult = mysqli_fetch_array($CategoryQueryExecution)){ ?>
-                                <option value="<?php echo $CategoryQueryResult['CategoryID'];?>"><?php echo $CategoryQueryResult['CategoryName']; ?></option>
-                            <?php
-                            }
+                            $CategoryQueryResult = mysqli_fetch_assoc($CategoryQueryExecution);
                             ?>
-
+                            <option value="<?php echo $ProductQueryResult['CategoryID'];?>"><?php echo $CategoryQueryResult['CategoryName']; ?></option>
                         </select>
                         </ul>
                     </div>
                     <div class="col-4" style="margin-right: 10px; margin-bottom: 10px;">
                         <div class="input-group">
                             <span class="input-group-text" style="border: 2px solid dimgray" id="ProductPrice-CurrencyLabel">₱</span>
-                            <input type="number" class="form-control" id="ProductPrice" name="ProductPrice" placeholder="Price" required>
+                            <input type="number" class="form-control" id="ProductPrice" name="Edit-ProductPrice" placeholder="Price" value="<?php echo $ProductQueryResult['PricePerUnit'];?>" required>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-8">
-                        <input type="text" class="form-control" id="ProductDescription" name="ProductDescription" placeholder="Product Description" required>
+                    <div class="col-sm-8 mt-2">
+                        <input type="text" class="form-control" id="ProductDescription" name="Edit-ProductDescription" placeholder="Product Description" value="<?php echo $ProductQueryResult['Description'];?>" required>
                     </div>
-                    <div class="col-sm-4 d-flex align-items-center">
-                        <input type="file" name="ProductImageFile" id="ProductImageFile" required>
+                    <div class="col-sm-4 mt-2">
+                        <select type="number" class="form-select" style="border: 2px solid dimgray" id="ProductStatusDropdown" name="Edit-ProductStatusDropdown">
+                            <?php
+                            if ($ProductQueryResult['ProductStatus'] == "Inactive"){ ?>
+                                <option value="<?php echo $ProductQueryResult['ProductStatus'];?>" selected><?php echo $ProductQueryResult['ProductStatus'];?></option>
+                                <option value="Active">Active</option>
+                                <?php
+                            }
+                            else { ?>
+                                <option value="<?php echo $ProductQueryResult['ProductStatus'];?>" selected><?php echo $ProductQueryResult['ProductStatus'];?></option>
+                                <option value="Inactive">Inactive</option>
+                            <?php
+                            }
+                            ?>
+                            </select>
+                        </div>
+                    </div>
+                <div class="row mt-2">
+                        <input type="file" name="Edit-ProductImageFile" id="ProductImageFile" value="<?php echo $ProductQueryResult['ProductImageURL'];?>">
+                </div>
+                <div class="row mt-2 border shadow p-1 pb-3 mb-1 bg-white rounded d-flex justify-content-center" id="currentproductimage-container">
+                        <p id="editproductimage-label">Current Product Image</p>
+                        <img src="<?php echo $ProductQueryResult['ProductImageURL'];?>" id="ProductImage">
+                </div>
+
+                <div class="row">
+                    <div class="container-fluid mt-2" id="editproduct-buttoncontainer">
+                        <button type="submit" class="btn btn-dark" id="EditProductBtn" name="updateproductbtn" title="Edit Product">Save Changes</button>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-dark mt-2" id="AddProductBtn" name="submit" title="Add Product">Add New Product</button>
             </form>
-        </div>
-
-        <!-- Form for adding category-->
-        <div class="container p-1">
-            <form action="../process-controllers/controls-addcategory.php" method="POST">
-                <h5 style="font-family: Verdana; text-align: left;" id="addproduct-label">Add Product Category</h5>
-                <div class="row d-flex justify-content-start" style="padding-right: 6px;">
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control" id="CategoryName" name="CategoryName" placeholder="Category Name" required>
-                    </div>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control" id="CategoryCode" name="CategoryCode" placeholder="3-Letter Category Code" required>
-                    </div>
-                    <div class="col-sm-4">
-                        <button type="submit" class="btn btn-dark" id="AddCategoryBtn" title="Add Category">Add New Category</button>
-                    </div>
-
-            </form>
-        </div>
-
-        <!-- Product List Table-->
-        <div class="container justify-content-center border shadow p-3 mb-5 bg-white rounded" id="admin-tablecontainer">
-            <h5 id="table-title">Product List</h5>
-            <div class="table-responsive">
-                <table class="table table-hover table-striped">
-                    <thead>
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col" id="tableCell-ProductName">Product Name</th>
-                        <th scope="col">Category</th>
-                        <th scope="col">SKU</th>
-                        <th scope="col">Price Per Unit</th>
-                        <th scope="col">Current Stock</th>
-                        <th scope="col">Product Status</th>
-                        <th scope="col">Actions</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-
-                    <?php
-                    //getting all the products
-                    $getProductsQuery = "SELECT * FROM product";
-                    $getProductsQueryExecution = mysqli_query($conn, $getProductsQuery);
-
-
-                    while($getProductsQueryResult = mysqli_fetch_assoc($getProductsQueryExecution)){
-
-                        //getting the category of the product
-                        $productcategory_ID =  $getProductsQueryResult['CategoryID'];
-                        $getCategoryQueryExecution = mysqli_query($conn,"SELECT * FROM category WHERE CategoryID='$productcategory_ID'");
-                        $productCategoryQueryResult = mysqli_fetch_assoc($getCategoryQueryExecution);
-                        $productcategory_Name = $productCategoryQueryResult['CategoryName'];
-
-                        ?>
-                    <tr>
-                        <th scope="row"><?php echo $getProductsQueryResult['ProductID']; ?></th>
-                        <td><?php echo $getProductsQueryResult['ProductName']; ?></td>
-                        <td><?php echo $productcategory_Name; ?></td>
-                        <td><?php echo $getProductsQueryResult['SKU']; ?></td>
-                        <td><?php echo $getProductsQueryResult['PricePerUnit']; ?></td>
-                        <td><?php echo $getProductsQueryResult['CurrentStockCount']; ?></td>
-                        <td><?php echo $getProductsQueryResult['ProductStatus']; ?></td>
-                        <td>
-                            <a href="admin-editproduct.php?prdctid=<?php echo $getProductsQueryResult['ProductID'];?> ">
-                                <button class="btn btn-success" title="Edit Product Details" id="editproduct-btn"><i class="bi bi-pencil-fill"></i></button>
-                            </a>
-                        </td>
-                    </tr>
-                   <?php
-                    }
-                    ?>
-
-                    </tbody>
-                </table>
+            <div class="row">
+                <div class="container-fluid" id="editproduct-buttoncontainer">
+                    <a href="../process-controllers/controls-deleteproduct.php?prdctid=<?php echo $ProductQueryResult['ProductID']; ?>">
+                        <button class="btn btn-danger" id="DeleteProductBtn" title="Delete Product">Delete Product</button>
+                    </a>
+                </div>
             </div>
+
         </div>
     </div>
 </body>

@@ -36,9 +36,9 @@ $conn = require '../database/connection.php';
 
             //Putting user info on query
             $RegisterUserQuery = "INSERT INTO user 
-            (FirstName, LastName,Email, Address, Password, PhoneNumber, PostalCode )
+            (FirstName, LastName,Email, Address, Password, PhoneNumber, PostalCode, SuperUser)
             VALUES
-            ('$firstname','$lastname','$email','$address','$hashedPassword',0,0)";
+            ('$firstname','$lastname','$email','$address','$hashedPassword',0,0,0)";
 
             //query execution
             if (mysqli_query($conn,$RegisterUserQuery)){

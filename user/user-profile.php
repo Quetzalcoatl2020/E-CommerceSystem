@@ -1,6 +1,6 @@
 <?php
 session_start();
-$conn = require 'database/connection.php';
+$conn = require '../database/connection.php';
 
     //getting user information using stored UserID from Session variable
     if (isset($_SESSION['UserID'])){
@@ -18,21 +18,22 @@ $conn = require 'database/connection.php';
     } else {
         $_SESSION['Login_Error'] = "Please login first.";
         header("Location: index.php");
+        exit();
     }
 
 ?>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="bootstrap-4.0.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../bootstrap-4.0.0-dist/css/bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
     <!-- JavaScript Bundle with Popper -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <script src="jquery.min.js"></script>
-    <script type="text/javascript" src="js/functions-js.js"></script>
+    <script src="../jquery.min.js"></script>
+    <script type="text/javascript" src="../js/functions-js.js"></script>
 </head>
 <body class="bg-light">
 
@@ -86,7 +87,7 @@ $conn = require 'database/connection.php';
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="navdropdown">
                         <a class="dropdown-item" href="#" ><i class="bi bi-person-fill" id="menuicon"></i>Profile</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="index.php"><i class="bi bi-box-arrow-right" id="menuicon"></i>Log Out</a>
+                        <a class="dropdown-item" href="../index.php"><i class="bi bi-box-arrow-right" id="menuicon"></i>Log Out</a>
                     </div>
                 </li>
             </ul>
@@ -98,7 +99,7 @@ $conn = require 'database/connection.php';
             <!-- USER PROFILE code block-->
             <div class="row d-flex align-items-center">
                 <div class="col-sm-4 d-flex justify-content-center">
-                    <img src="images/profile-pic.png" class="rounded-circle" id="profilepic">
+                    <img src="../images/profile-pic.png" class="rounded-circle" id="profilepic">
                 </div>
                 <div class="col-sm-8" id="profile-userinfoheader">
                     <div class="row" style="margin-bottom: -5px;">
@@ -189,7 +190,7 @@ $conn = require 'database/connection.php';
                         </div>
                         <!--Product Image here-->
                         <div class="col-2 d-flex align-items-center">
-                            <img class="card-img" id="product-img" src="images/electric-drill.jpg" alt="Card image cap">
+                            <img class="card-img" id="product-img" src="../images/electric-drill.jpg" alt="Card image cap">
                         </div>
 
                         <div class="col-4">
@@ -249,7 +250,7 @@ $conn = require 'database/connection.php';
                     <div class="row pb-2 pt-2">
                         <!--Product Image here-->
                         <div class="col-2 d-flex align-items-center">
-                            <img class="card-img" id="product-img" src="images/electric-drill.jpg" alt="Card image cap">
+                            <img class="card-img" id="product-img" src="../images/electric-drill.jpg" alt="Card image cap">
                         </div>
 
                         <div class="col-5">
@@ -310,7 +311,7 @@ $conn = require 'database/connection.php';
                     <div class="row pb-2 pt-2">
                         <!--Product Image here-->
                         <div class="col-2 d-flex align-items-center">
-                            <img class="card-img" id="product-img" src="images/electric-drill.jpg" alt="Card image cap">
+                            <img class="card-img" id="product-img" src="../images/electric-drill.jpg" alt="Card image cap">
                         </div>
 
                         <div class="col-5">
@@ -351,7 +352,7 @@ $conn = require 'database/connection.php';
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form id="edit-profile-form" onsubmit="EditProfile_onSubmitInputValidation()" action="process-controllers/controls-editprofile.php" method="POST">
+                        <form id="edit-profile-form" onsubmit="EditProfile_onSubmitInputValidation()" action="../process-controllers/controls-editprofile.php" method="POST">
                             <!-- client-side error prompt-->
                             <div class="form-group rounded" id="EditProfileInput-ErrorContainer">
                                 <p class="text-center" id="EditProfileInput-ErrorText">Please follow correct input formats.</p>

@@ -8,13 +8,10 @@ $conn = require '../database/connection.php';
     $ImageFileType = strtolower(pathinfo($ImageFile,PATHINFO_EXTENSION));
 
     //getting input values from the form
-    $productname = $_POST['ProductName'];
+    $productname = trim($_POST['ProductName']);
     $productcategory = $_POST['ProductCategoryDropdown'];
     $productprice = $_POST['ProductPrice'];
     $productdescription = $_POST['ProductDescription'];
-
-    //Get all product query
-    $getProductExecution = mysqli_query($conn, "SELECT * FROM product");
 
 
     // Check if image file is an actual image
@@ -23,8 +20,8 @@ $conn = require '../database/connection.php';
         if($checkImage !== false) {
 
             // Check image file size
-            if ($_FILES["ProductImageFile"]["size"] > 500000) {
-                $_SESSION['AddProduct-Status'] = "Image file size should be less than 500kb.";
+            if ($_FILES["ProductImageFile"]["size"] > 1000000) {
+                $_SESSION['AddProduct-Status'] = "Image file size should be less than 1mb.";
                 header("Location: ../admin/admin-products.php");
                 exit();
             }
@@ -89,7 +86,7 @@ $conn = require '../database/connection.php';
                         ('$productcategory',0,'$productname','$productdescription','$ProductSKU','$SKU_Number','$productprice',0,0,0,'Inactive','')";
 
                     if(mysqli_query($conn, $AddProductQuery)){
-                        //getting the product details
+                        //getting the details of the last product in the list, which is the newly inserted product
                         $getProductExecution = mysqli_query($conn, "SELECT * FROM product ORDER BY ProductID DESC LIMIT 1");
                         $getProductResult = mysqli_fetch_assoc($getProductExecution);
                         $ProductID = $getProductResult['ProductID'];

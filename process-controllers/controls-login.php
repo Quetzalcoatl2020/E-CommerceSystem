@@ -18,16 +18,34 @@ $conn = require '../database/connection.php';
 
         //comparing inputted password and decrypted password from database
         if (password_verify($password1, $EncryptedPassword)) {
-            $_SESSION['UserID'] = $UserAccountDetails['UserID'];
-            header("Location: ../user-profile.php");
+            //checking the user's access level
+            if ($UserAccountDetails['SuperUser'] == 0){
+                $_SESSION['UserID'] = $UserAccountDetails['UserID'];
+                header("Location: ../user/user-profile.php");
+                exit();
+            }
+            else if($UserAccountDetails['SuperUser'] > 0){
+                if ($UserAccountDetails['SuperUser'] == 2){
+                    $_SESSION['Login_Error'] = "Your account has been disabled. Contact the administrator.";
+                    header("Location: ../index.php");
+                    exit();
+                }else {
+                    $_SESSION['UserID'] = $UserAccountDetails['UserID'];
+                    header("Location: ../admin/admin-products.php");
+                    exit();
+                }
+            }
+
         }
         else {
             $_SESSION['Login_Error'] = "Incorrect password.";
             header("Location: ../index.php");
+            exit();
         }
     }
     else {
         $_SESSION['Login_Error'] = "Your email does not match any accounts in the system.";
         header("Location: ../index.php");
+        exit();
     }
     ?>

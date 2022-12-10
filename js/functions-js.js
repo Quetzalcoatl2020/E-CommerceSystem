@@ -207,6 +207,7 @@ function checknameformat() {
 //summarized form input validation on sign up form submit
 function SignUp_onSubmitInputValidation () {
     event.preventDefault();
+
     var regexname=/^([a-zA-Z ]{2,20})$/;
     var fname = document.getElementById("FirstName").value;
     var lname = document.getElementById("LastName").value;
@@ -217,6 +218,7 @@ function SignUp_onSubmitInputValidation () {
     var pass8char = new RegExp("(?=.{8,})");
     var hasNoError = true;
 
+
     if (fname != "") {
         if (!fname.match(regexname)){
             hasNoError = false;
@@ -225,7 +227,7 @@ function SignUp_onSubmitInputValidation () {
             return hasNoError;
         }
     }
-    if (lname != "") {
+    else if (lname != "") {
         if (!lname.match(regexname)){
             hasNoError = false;
             document.getElementById("FormInput-ErrorText").innerText="Please follow correct last name format.";
@@ -233,25 +235,25 @@ function SignUp_onSubmitInputValidation () {
             return hasNoError;
         }
     }
-    if (!password1.match(pass8char) && !password2.match(pass8char)){
+    else if (!password1.match(pass8char) && !password2.match(pass8char)){
         hasNoError = false;
         document.getElementById("FormInput-ErrorText").innerText="Please follow correct password format.";
         document.getElementById("FormInput-ErrorContainer").style.display = 'block';
         return hasNoError;
     }
-    if (!password1.match(passnumber) && !password2.match(passnumber)){
+    else if (!password1.match(passnumber) && !password2.match(passnumber)){
         hasNoError = false;
         document.getElementById("FormInput-ErrorText").innerText="Please follow correct password format.";
         document.getElementById("FormInput-ErrorContainer").style.display = 'block';
         return hasNoError;
     }
-    if (!password1.match(passspecial) && !password2.match(passspecial)){
+    else if (!password1.match(passspecial) && !password2.match(passspecial)){
         hasNoError = false;
         document.getElementById("FormInput-ErrorText").innerText="Please follow correct password format.";
         document.getElementById("FormInput-ErrorContainer").style.display = 'block';
         return hasNoError;
     }
-    if (password1 != password2){
+    else if (password1 != password2){
         hasNoError = false;
         document.getElementById("FormInput-ErrorText").innerText="Password mismatch. Please check.";
         document.getElementById("FormInput-ErrorContainer").style.display = 'block';

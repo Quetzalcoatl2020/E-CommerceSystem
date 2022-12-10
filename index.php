@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 ?>
 <html>
 <head>
@@ -50,7 +51,7 @@ session_start();
                         <?php
                     }
                     unset($_SESSION['Login_Error']);
-                    session_destroy();
+                    session_unset();
                     ?>
                     <div class="form-group">
                         <input type="email" class="form-control" id="Email" name="Email" placeholder="Email" required>
