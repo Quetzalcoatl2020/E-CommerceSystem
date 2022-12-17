@@ -92,7 +92,7 @@ $conn = require '../database/connection.php';
                         <a class="nav-link dropdown-toggle text-light" href="#" id="adminMenuDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <?php echo $AdminInformation['FirstName']." ".$AdminInformation['LastName'];?>
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="adminnavdropdown">
+                        <div class="dropdown-menu mr-1 w-100" aria-labelledby="navbarDropdown" id="adminnavdropdown">
                             <a class="dropdown-item" href="../index.php" id="adminMenuItem"><i class="bi bi-box-arrow-right" id="adminmenuicon"></i>Log Out</a>
                         </div>
                     </li>

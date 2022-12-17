@@ -35,7 +35,7 @@ $conn = require '../database/connection.php';
     }
     else {
         $_SESSION['EditInfo-Status'] = "Invalid email format.";
-        header("Location: ../user-profile.php");
+        header("Location: ../user/user-profile.php");
         exit();
     }
     //address
@@ -62,7 +62,7 @@ $conn = require '../database/connection.php';
         if ($DecryptedPassword) {
             if($currentpass == $newpass){ //if raw password == the inputted new password
                 $_SESSION['EditInfo-Status'] = "The new password you inputted is the same with your current password.";
-                header("Location: ../user-profile.php");
+                header("Location: ../user/user-profile.php");
                 exit();
             }
             else {
@@ -71,7 +71,7 @@ $conn = require '../database/connection.php';
         }
         else { //if the inputted password does not match the password in the database
             $_SESSION['EditInfo-Status'] = "Incorrect password.";
-            header("Location: ../user-profile.php");
+            header("Location: ../user/user-profile.php");
             exit();
         }
     }
@@ -86,7 +86,7 @@ $conn = require '../database/connection.php';
     //Query Execution
     if(mysqli_query($conn,$UpdateInfoQuery)){
         $_SESSION['EditInfo-Status'] = "Changes have been saved.";
-        header("Location: ../user-profile.php");
+        header("Location: ../user/user-profile.php");
     }
 
 ?>

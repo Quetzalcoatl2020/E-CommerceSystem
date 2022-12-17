@@ -17,7 +17,7 @@ $conn = require '../database/connection.php';
         }
     } else {
         $_SESSION['Login_Error'] = "Please login first.";
-        header("Location: index.php");
+        header("Location: ../index.php");
         exit();
     }
 
@@ -65,18 +65,18 @@ $conn = require '../database/connection.php';
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
             <!--Search feature-->
-            <form class="form-inline my-2 ml-auto mr-auto">
-                <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+            <form class="form-inline my-2 ml-auto mr-auto d-flex justify-content-center" method="POST" action="#">
+                <input class="form-control" type="search" placeholder="Search" aria-label="Search" id="searchbox">
+                <button class="btn btn-outline-light my-2 my-sm-0" type="submit" id="searchBtn">Search</button>
             </form>
 
             <!--navbar links-->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link text-light" href="#"><i class="bi bi-house-door-fill" id="homeicon"></i></a>
+                    <a class="nav-link text-light" href="homepage.php"><i class="bi bi-house-door-fill" id="homeicon"></i><small id="navbarDropdown-label">Home</small></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light" href="user-profile.php" id="shoppingcartlink"><i class="bi bi-cart4" id="shoppingcart"></i></a>
+                    <a class="nav-link text-light" href="user-profile.php" id="shoppingcartlink"><i class="bi bi-cart4" id="shoppingcart"></i><small id="navbarDropdown-label">Shopping Cart</small></a>
                 </li>
 
                 <!--Dropdown-->
@@ -84,8 +84,8 @@ $conn = require '../database/connection.php';
                     <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Menu
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="navdropdown">
-                        <a class="dropdown-item" href="#" ><i class="bi bi-person-fill" id="menuicon"></i>Profile</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="adminnavdropdown">
+                        <a class="dropdown-item" href="../user/user-profile.php" ><i class="bi bi-person-fill" id="menuicon"></i>Profile</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="../index.php"><i class="bi bi-box-arrow-right" id="menuicon"></i>Log Out</a>
                     </div>

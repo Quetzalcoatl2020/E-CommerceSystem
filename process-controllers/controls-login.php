@@ -21,7 +21,7 @@ $conn = require '../database/connection.php';
             //checking the user's access level
             if ($UserAccountDetails['SuperUser'] == 0){
                 $_SESSION['UserID'] = $UserAccountDetails['UserID'];
-                header("Location: ../user/user-profile.php");
+                header("Location: ../user/homepage.php");
                 exit();
             }
             else if($UserAccountDetails['SuperUser'] > 0){
